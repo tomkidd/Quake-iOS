@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="U1P-M7-iTa">
+    <device id="retina5_9" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="dpquake.ttf">
+            <string>DpQuake</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Game View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="Quake_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="GLKView">
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ls9-wC-dDV">
+                                <rect key="frame" x="752" y="20" width="41" height="32"/>
+                                <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="17"/>
+                                <state key="normal" title="pause">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="TeH-JF-A3h" kind="show" identifier="GamePausedSegue" id="f8U-yD-dVD"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ls9-wC-dDV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="P7L-df-kIN"/>
+                            <constraint firstItem="Ls9-wC-dDV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="ScX-db-dgG"/>
+                            <constraint firstAttribute="trailing" secondItem="Ls9-wC-dDV" secondAttribute="trailing" constant="19" id="l6h-db-BDp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZQG-RF-Hzx"/>
+                    <connections>
+                        <outlet property="view" destination="8bC-Xf-vdC" id="arI-yN-6ff"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2950" y="334"/>
+        </scene>
+        <!--Game Paused View Controller-->
+        <scene sceneID="OiQ-hz-NeN">
+            <objects>
+                <viewController id="TeH-JF-A3h" customClass="GamePausedViewController" customModule="Quake_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fmf-1o-nLG"/>
+                        <viewControllerLayoutGuide type="bottom" id="MWd-vW-BFb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WTd-hu-0pJ">
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOU PAUSED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SlC-2E-k6d">
+                                <rect key="frame" x="293.66666666666669" y="20.000000000000004" width="225.00000000000006" height="35.333333333333343"/>
+                                <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DGB-0O-KSx">
+                                <rect key="frame" x="36" y="313" width="100" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="24"/>
+                                <state key="normal" title="Go Back">
+                                    <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="D1U-YH-5pn" kind="unwind" unwindAction="exitToGameViewControllerWithSegue:" id="Rbz-Yt-rov"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bkb-oU-JWW">
+                                <rect key="frame" x="344" y="64" width="124" height="90"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JKT-QH-1d7">
+                                        <rect key="frame" x="1" y="0.0" width="122" height="41"/>
+                                        <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="24"/>
+                                        <state key="normal" title="Save Game">
+                                            <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveGame:" destination="TeH-JF-A3h" eventType="touchUpInside" id="VUc-a1-xG8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sp2-QV-WNi">
+                                        <rect key="frame" x="0.0" y="49" width="124" height="41"/>
+                                        <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="24"/>
+                                        <state key="normal" title="Load Game">
+                                            <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loadGame:" destination="TeH-JF-A3h" eventType="touchUpInside" id="Lxb-Wf-f5R"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5L-WO-QOj">
+                                        <rect key="frame" x="-46" y="90" width="216" height="0.0"/>
+                                        <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="24"/>
+                                        <state key="normal" title="Exit to Main Menu">
+                                            <color key="titleColor" red="1" green="0.80000001190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="exitToMainMenu:" destination="TeH-JF-A3h" eventType="touchUpInside" id="OFs-eg-kBc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="SlC-2E-k6d" firstAttribute="centerX" secondItem="WTd-hu-0pJ" secondAttribute="centerX" id="94w-YY-P2h"/>
+                            <constraint firstItem="SlC-2E-k6d" firstAttribute="top" secondItem="fmf-1o-nLG" secondAttribute="bottom" constant="20" id="JFB-O5-pJz"/>
+                            <constraint firstItem="bkb-oU-JWW" firstAttribute="centerX" secondItem="WTd-hu-0pJ" secondAttribute="centerX" id="aFa-Kf-Hxe"/>
+                            <constraint firstItem="bkb-oU-JWW" firstAttribute="top" secondItem="SlC-2E-k6d" secondAttribute="bottom" constant="8" id="tPL-2R-yYr"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XG6-je-GoP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="D1U-YH-5pn" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3989" y="348"/>
+        </scene>
+        <!--Select Episode View Controller-->
+        <scene sceneID="R6C-BT-8E8">
+            <objects>
+                <viewController id="0k3-ng-Ggz" customClass="SelectEpisodeViewController" customModule="Quake_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QIy-51-82g"/>
+                        <viewControllerLayoutGuide type="bottom" id="NxI-qN-i4w"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sy4-Xn-pRa">
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quake-box" translatesAutoresizingMaskIntoConstraints="NO" id="vuz-NH-3OK">
+                                <rect key="frame" x="63.999999999999986" y="43" width="243.66666666666663" height="289"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vuz-NH-3OK" secondAttribute="height" multiplier="243:289" id="Y0n-J9-qHg"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UbI-Rm-nah">
+                                <rect key="frame" x="330" y="43" width="418" height="289"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="0k3-ng-Ggz" id="WQq-nc-Uf5"/>
+                                    <outlet property="delegate" destination="0k3-ng-Ggz" id="Xba-T8-i7Q"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Zq-pa-7WN">
+                                <rect key="frame" x="22" y="43" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="7NF-Vp-Dv0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="36"/>
+                                <state key="normal" title="&lt;"/>
+                                <connections>
+                                    <segue destination="Zkf-Yz-OOS" kind="unwind" unwindAction="exitToGameOptionsControllerWithSegue:" id="nbq-gK-TNs"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UbI-Rm-nah" firstAttribute="leading" secondItem="vuz-NH-3OK" secondAttribute="trailing" constant="22.333333333333371" id="0cu-0i-S9B"/>
+                            <constraint firstItem="vuz-NH-3OK" firstAttribute="width" secondItem="sy4-Xn-pRa" secondAttribute="width" multiplier="0.3" id="4PQ-2k-i3P"/>
+                            <constraint firstItem="vuz-NH-3OK" firstAttribute="leading" secondItem="sy4-Xn-pRa" secondAttribute="leading" constant="64" id="Jnx-rc-ZW7"/>
+                            <constraint firstItem="2Zq-pa-7WN" firstAttribute="leading" secondItem="sy4-Xn-pRa" secondAttribute="leading" constant="22" id="L29-QN-rl1"/>
+                            <constraint firstItem="2Zq-pa-7WN" firstAttribute="top" secondItem="QIy-51-82g" secondAttribute="bottom" constant="43" id="Tjp-JX-hqP"/>
+                            <constraint firstItem="vuz-NH-3OK" firstAttribute="centerY" secondItem="sy4-Xn-pRa" secondAttribute="centerY" id="WEJ-Df-Qbd"/>
+                            <constraint firstItem="UbI-Rm-nah" firstAttribute="bottom" secondItem="vuz-NH-3OK" secondAttribute="bottom" id="X8b-8h-teR"/>
+                            <constraint firstItem="vuz-NH-3OK" firstAttribute="width" secondItem="vuz-NH-3OK" secondAttribute="height" multiplier="243:289" id="dT6-2L-9XB"/>
+                            <constraint firstItem="UbI-Rm-nah" firstAttribute="top" secondItem="vuz-NH-3OK" secondAttribute="top" id="ndz-ei-FB9"/>
+                            <constraint firstAttribute="trailing" secondItem="UbI-Rm-nah" secondAttribute="trailing" constant="64" id="snb-yx-pzX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="boxArtImage" destination="vuz-NH-3OK" id="Y65-bc-lkf"/>
+                        <outlet property="episodeList" destination="UbI-Rm-nah" id="Rsw-wd-7yw"/>
+                        <segue destination="daW-aI-0dI" kind="show" identifier="SelectLevelSegue" id="eG4-26-PqJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jy0-8h-KNJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Zkf-Yz-OOS" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3473" y="1382"/>
+        </scene>
+        <!--Game Options View Controller-->
+        <scene sceneID="tRD-ia-7MI">
+            <objects>
+                <viewController id="BK0-bY-qCE" customClass="GameOptionsViewController" customModule="Quake_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="znu-lo-Wpa"/>
+                        <viewControllerLayoutGuide type="bottom" id="wJX-YI-6mY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sDb-sh-hsb">
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quake-box" translatesAutoresizingMaskIntoConstraints="NO" id="SHJ-Tz-Ks8">
+                                <rect key="frame" x="63.999999999999986" y="43.333333333333343" width="243.66666666666663" height="289"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="SHJ-Tz-Ks8" secondAttribute="height" multiplier="243:289" id="jpn-HU-hmh"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="I34-3T-ExN">
+                                <rect key="frame" x="331" y="43.333333333333329" width="461" height="134.33333333333337"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="bYe-p9-Zes">
+                                        <rect key="frame" x="0.0" y="0.0" width="209.33333333333334" height="47"/>
+                                        <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="40"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Xe3-gT-EuT">
+                                        <rect key="frame" x="0.0" y="47" width="117.66666666666667" height="37.666666666666657"/>
+                                        <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="32"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFd-ht-WjU">
+                                        <rect key="frame" x="0.0" y="84.666666666666657" width="112.66666666666667" height="28.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="24"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ad-a2-jqv">
+                                        <rect key="frame" x="0.0" y="113" width="40.333333333333336" height="21.333333333333343"/>
+                                        <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEZ-Uh-eDI">
+                                <rect key="frame" x="327.66666666666669" y="228" width="131" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="J5Q-TV-u4u"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="24"/>
+                                <state key="normal" title="Start Game">
+                                    <color key="titleColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="StartGameSegue" id="dn6-bs-Ug1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkw-AE-rbb">
+                                <rect key="frame" x="327.66666666666669" y="303" width="162" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="log-FF-M8t"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="24"/>
+                                <state key="normal" title="Select Episode">
+                                    <color key="titleColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="0k3-ng-Ggz" kind="show" identifier="SelectEpisodeSegue" id="rUy-38-y7s"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBf-u5-UD2">
+                                <rect key="frame" x="22" y="43" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4gP-hr-dGy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="36"/>
+                                <state key="normal" title="&lt;"/>
+                                <connections>
+                                    <segue destination="sEW-xl-gis" kind="unwind" unwindAction="exitToChooseGameControllerWithSegue:" id="3u1-df-Rla"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4X-WC-nl7">
+                                <rect key="frame" x="327.66666666666669" y="266.66666666666669" width="25.666666666666686" height="28.333333333333314"/>
+                                <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="u4X-WC-nl7" firstAttribute="top" secondItem="fEZ-Uh-eDI" secondAttribute="bottom" constant="8" id="30F-KL-zBe"/>
+                            <constraint firstAttribute="trailing" secondItem="I34-3T-ExN" secondAttribute="trailing" constant="20" id="DaI-k2-V4D"/>
+                            <constraint firstItem="fkw-AE-rbb" firstAttribute="top" secondItem="u4X-WC-nl7" secondAttribute="bottom" constant="8" id="Gq6-sQ-m9S"/>
+                            <constraint firstItem="SHJ-Tz-Ks8" firstAttribute="leading" secondItem="sDb-sh-hsb" secondAttribute="leading" constant="63.999999999999986" id="I5H-wg-VTm"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fkw-AE-rbb" secondAttribute="trailing" constant="20" symbolic="YES" id="Llj-ht-Dp2"/>
+                            <constraint firstItem="u4X-WC-nl7" firstAttribute="leading" secondItem="fkw-AE-rbb" secondAttribute="leading" id="PMb-Oz-KUc"/>
+                            <constraint firstItem="SHJ-Tz-Ks8" firstAttribute="centerY" secondItem="sDb-sh-hsb" secondAttribute="centerY" id="Wzo-0s-FQ5"/>
+                            <constraint firstItem="I34-3T-ExN" firstAttribute="top" secondItem="SHJ-Tz-Ks8" secondAttribute="top" id="YHI-KO-pY0"/>
+                            <constraint firstItem="fkw-AE-rbb" firstAttribute="leading" secondItem="SHJ-Tz-Ks8" secondAttribute="trailing" constant="20" id="Z22-Nm-Bb3"/>
+                            <constraint firstItem="SHJ-Tz-Ks8" firstAttribute="width" secondItem="sDb-sh-hsb" secondAttribute="width" multiplier="0.3" id="dmg-id-8Hv"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="u4X-WC-nl7" secondAttribute="trailing" constant="20" symbolic="YES" id="ieQ-OP-gZq"/>
+                            <constraint firstItem="nBf-u5-UD2" firstAttribute="top" secondItem="znu-lo-Wpa" secondAttribute="bottom" constant="43" id="q4t-FZ-af8"/>
+                            <constraint firstItem="fkw-AE-rbb" firstAttribute="bottom" secondItem="SHJ-Tz-Ks8" secondAttribute="bottom" id="rGh-0j-7ZZ"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fEZ-Uh-eDI" secondAttribute="trailing" constant="20" symbolic="YES" id="rGo-Mx-Mma"/>
+                            <constraint firstItem="fEZ-Uh-eDI" firstAttribute="leading" secondItem="u4X-WC-nl7" secondAttribute="leading" id="s5X-ir-lU6"/>
+                            <constraint firstItem="nBf-u5-UD2" firstAttribute="leading" secondItem="sDb-sh-hsb" secondAttribute="leading" constant="22" id="uoi-ZI-5U6"/>
+                            <constraint firstItem="I34-3T-ExN" firstAttribute="leading" secondItem="SHJ-Tz-Ks8" secondAttribute="trailing" constant="23.333333333333371" id="yhk-Ms-07X"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="boxArtImage" destination="SHJ-Tz-Ks8" id="0nU-zl-W8v"/>
+                        <outlet property="developerNameLabel" destination="sFd-ht-WjU" id="VOG-zc-pCC"/>
+                        <outlet property="gameNameLabel" destination="bYe-p9-Zes" id="8Pk-4u-7hW"/>
+                        <outlet property="subtitleLabel" destination="Xe3-gT-EuT" id="b4u-RP-lgS"/>
+                        <outlet property="yearLabel" destination="2ad-a2-jqv" id="xQ1-Ir-VkP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kld-gB-5Ah" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="sEW-xl-gis" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2675.615763546798" y="1349.5999999999999"/>
+        </scene>
+        <!--Choose Game View Controller-->
+        <scene sceneID="d22-Vk-Utt">
+            <objects>
+                <viewController id="woQ-Gg-XPj" customClass="ChooseGameViewController" customModule="Quake_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="r0L-My-acd"/>
+                        <viewControllerLayoutGuide type="bottom" id="SGu-tW-2XM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vq7-vu-lVN">
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txs-xE-izH">
+                                <rect key="frame" x="284.33333333333331" y="42.666666666666657" width="243.33333333333331" height="289.66666666666674"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="txs-xE-izH" secondAttribute="height" multiplier="171:203" id="1HY-97-vTm"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="quake-xp1-box"/>
+                                <connections>
+                                    <segue destination="BK0-bY-qCE" kind="show" identifier="quakeXP1Segue" id="0PC-2v-fWf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTf-WI-EoP">
+                                <rect key="frame" x="535.66666666666663" y="43.333333333333343" width="243.66666666666663" height="289.33333333333326"/>
+                                <state key="normal" backgroundImage="quake-xp2-box"/>
+                                <connections>
+                                    <segue destination="BK0-bY-qCE" kind="show" identifier="quakeXP2Segue" id="ChN-f4-6Rl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5I-Xg-xnn">
+                                <rect key="frame" x="31.666666666666671" y="43.333333333333343" width="243.66666666666663" height="289.33333333333326"/>
+                                <state key="normal" backgroundImage="quake-box"/>
+                                <connections>
+                                    <segue destination="BK0-bY-qCE" kind="show" identifier="quakeSegue" id="nze-pR-jc7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="txs-xE-izH" firstAttribute="centerX" secondItem="vq7-vu-lVN" secondAttribute="centerX" id="0Xu-qT-70b"/>
+                            <constraint firstItem="txs-xE-izH" firstAttribute="centerY" secondItem="vq7-vu-lVN" secondAttribute="centerY" id="1UT-6A-Pqb"/>
+                            <constraint firstItem="hTf-WI-EoP" firstAttribute="centerY" secondItem="txs-xE-izH" secondAttribute="centerY" id="DhN-8J-M6o"/>
+                            <constraint firstItem="hTf-WI-EoP" firstAttribute="height" secondItem="txs-xE-izH" secondAttribute="height" id="Mk8-Cf-RbC"/>
+                            <constraint firstItem="hTf-WI-EoP" firstAttribute="width" secondItem="txs-xE-izH" secondAttribute="width" id="gef-dO-HbG"/>
+                            <constraint firstItem="g5I-Xg-xnn" firstAttribute="width" secondItem="txs-xE-izH" secondAttribute="width" id="kDh-Eh-ufg"/>
+                            <constraint firstItem="hTf-WI-EoP" firstAttribute="leading" secondItem="txs-xE-izH" secondAttribute="trailing" constant="8" id="lfu-Vw-WPw"/>
+                            <constraint firstItem="txs-xE-izH" firstAttribute="leading" secondItem="g5I-Xg-xnn" secondAttribute="trailing" constant="9" id="rZL-u6-fZq"/>
+                            <constraint firstItem="txs-xE-izH" firstAttribute="width" secondItem="vq7-vu-lVN" secondAttribute="width" multiplier="0.3" id="sqc-si-iRt"/>
+                            <constraint firstItem="g5I-Xg-xnn" firstAttribute="centerY" secondItem="txs-xE-izH" secondAttribute="centerY" id="x84-ep-rvs"/>
+                            <constraint firstItem="g5I-Xg-xnn" firstAttribute="height" secondItem="txs-xE-izH" secondAttribute="height" id="xuT-ZK-l7h"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kiV-4M-XKw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1864" y="919"/>
+        </scene>
+        <!--Main Menu View Controller-->
+        <scene sceneID="4Jj-LH-Wsq">
+            <objects>
+                <viewController id="97n-OR-KvZ" customClass="MainMenuViewController" customModule="Quake_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6jH-rT-0nC"/>
+                        <viewControllerLayoutGuide type="bottom" id="fv3-d8-aiI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="q1h-2T-ge3">
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quake_logo_background_2" translatesAutoresizingMaskIntoConstraints="NO" id="A8T-dX-X12">
+                                <rect key="frame" x="-20" y="0.0" width="629" height="354"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="A8T-dX-X12" secondAttribute="height" multiplier="16:9" id="t2s-2c-R5g"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Q u a k e" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZc-H8-a8A">
+                                <rect key="frame" x="393.33333333333337" y="4" width="354.33333333333337" height="84.666666666666671"/>
+                                <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="72"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="08g-so-BEc">
+                                <rect key="frame" x="481" y="97" width="267" height="184"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gr-rx-sKA">
+                                        <rect key="frame" x="31" y="0.0" width="236" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="E5D-eQ-E0l"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="48"/>
+                                        <state key="normal" title="start game">
+                                            <color key="titleColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="StartGameSegue" id="2gS-4I-zq0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="siN-ZF-pQ8">
+                                        <rect key="frame" x="13" y="48" width="254" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="qXS-Op-rZI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="48"/>
+                                        <state key="normal" title="select game">
+                                            <color key="titleColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="woQ-Gg-XPj" kind="show" id="zGM-fh-TSE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nd2-2x-noR">
+                                        <rect key="frame" x="0.0" y="96" width="267" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="XJo-rK-amq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="48"/>
+                                        <state key="normal" title="resume game">
+                                            <color key="titleColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="ResumeGameSegue" id="xtx-zS-WKG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7F-8f-ooe">
+                                        <rect key="frame" x="167" y="144" width="100" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="DHh-sg-9fH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="48"/>
+                                        <state key="normal" title="demo">
+                                            <color key="titleColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="DemoSegue" id="ULe-p4-6Yn"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="A8T-dX-X12" firstAttribute="top" secondItem="6jH-rT-0nC" secondAttribute="bottom" id="0zF-sS-MKX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="08g-so-BEc" secondAttribute="trailing" id="5AQ-2s-w1S"/>
+                            <constraint firstAttribute="trailing" secondItem="A8T-dX-X12" secondAttribute="trailing" constant="203" id="6dX-L6-jgb">
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="dZc-H8-a8A" secondAttribute="trailing" constant="0.33333333333325754" id="9LD-7n-Nqr"/>
+                            <constraint firstItem="fv3-d8-aiI" firstAttribute="top" secondItem="A8T-dX-X12" secondAttribute="bottom" id="hEs-ln-t9G"/>
+                            <constraint firstItem="dZc-H8-a8A" firstAttribute="top" secondItem="6jH-rT-0nC" secondAttribute="bottom" constant="4" id="lKh-JV-lKF"/>
+                            <constraint firstItem="08g-so-BEc" firstAttribute="top" secondItem="dZc-H8-a8A" secondAttribute="bottom" constant="8" id="m2A-1c-a2R"/>
+                            <constraint firstItem="dZc-H8-a8A" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="q1h-2T-ge3" secondAttribute="leadingMargin" id="mAX-jY-peq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="SRc-ju-6sJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GBi-yn-iR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1169.7044334975369" y="237.59999999999999"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sFy-IN-g9v">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="U1P-M7-iTa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="hsN-d4-i7U">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="97n-OR-KvZ" kind="relationship" relationship="rootViewController" id="feW-ic-r0S"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BnW-wv-MB8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="321" y="240"/>
+        </scene>
+        <!--Select Level View Controller-->
+        <scene sceneID="Tui-V3-dHK">
+            <objects>
+                <viewController id="daW-aI-0dI" customClass="SelectLevelViewController" customModule="Quake_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xkk-A6-2bY"/>
+                        <viewControllerLayoutGuide type="bottom" id="USX-7f-8Lk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Y7O-Mb-dza">
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quake-box" translatesAutoresizingMaskIntoConstraints="NO" id="lMl-oR-MYY">
+                                <rect key="frame" x="63.999999999999986" y="43" width="243.66666666666663" height="289"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="lMl-oR-MYY" secondAttribute="height" multiplier="243:289" id="W1W-qZ-7e2"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="foS-aC-TiT">
+                                <rect key="frame" x="330" y="90" width="418" height="242"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="daW-aI-0dI" id="dSL-21-twY"/>
+                                    <outlet property="delegate" destination="daW-aI-0dI" id="ny5-46-AfK"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qX6-8b-N0E">
+                                <rect key="frame" x="22" y="43" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="EKD-xR-fFo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="36"/>
+                                <state key="normal" title="&lt;"/>
+                                <connections>
+                                    <segue destination="PAP-UD-XAp" kind="unwind" unwindAction="exitToSelectEpisodeControllerWithSegue:" id="wdT-ry-dJN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="org-Wb-76d">
+                                <rect key="frame" x="330" y="43" width="153" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Bpd-co-Dcv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="24"/>
+                                <state key="normal" title="Start Episode">
+                                    <color key="titleColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startEpisode:" destination="daW-aI-0dI" eventType="touchUpInside" id="Pat-fv-n1S"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or Select Level:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3u-On-8Em">
+                                <rect key="frame" x="496" y="43" width="189" height="29"/>
+                                <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qX6-8b-N0E" firstAttribute="top" secondItem="Xkk-A6-2bY" secondAttribute="bottom" constant="43" id="8uy-em-92c"/>
+                            <constraint firstItem="lMl-oR-MYY" firstAttribute="width" secondItem="lMl-oR-MYY" secondAttribute="height" multiplier="243:289" id="AKx-B9-c75"/>
+                            <constraint firstItem="org-Wb-76d" firstAttribute="top" secondItem="lMl-oR-MYY" secondAttribute="top" id="FPW-Fu-e2Q"/>
+                            <constraint firstItem="a3u-On-8Em" firstAttribute="centerY" secondItem="org-Wb-76d" secondAttribute="centerY" id="IxW-sW-IBD"/>
+                            <constraint firstItem="lMl-oR-MYY" firstAttribute="leading" secondItem="Y7O-Mb-dza" secondAttribute="leading" constant="64" id="PGV-ZT-HjL"/>
+                            <constraint firstItem="qX6-8b-N0E" firstAttribute="leading" secondItem="Y7O-Mb-dza" secondAttribute="leading" constant="22" id="X0R-cw-Cvq"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="a3u-On-8Em" secondAttribute="trailing" constant="20" symbolic="YES" id="bKp-GB-aWk"/>
+                            <constraint firstItem="lMl-oR-MYY" firstAttribute="width" secondItem="Y7O-Mb-dza" secondAttribute="width" multiplier="0.3" id="dHM-LK-j0X"/>
+                            <constraint firstItem="foS-aC-TiT" firstAttribute="leading" secondItem="lMl-oR-MYY" secondAttribute="trailing" constant="22.333333333333371" id="e7l-BC-y7M"/>
+                            <constraint firstItem="lMl-oR-MYY" firstAttribute="centerY" secondItem="Y7O-Mb-dza" secondAttribute="centerY" id="ejb-6F-ahd"/>
+                            <constraint firstItem="org-Wb-76d" firstAttribute="leading" secondItem="lMl-oR-MYY" secondAttribute="trailing" constant="22.333333333333371" id="h3n-fj-sYq"/>
+                            <constraint firstItem="foS-aC-TiT" firstAttribute="bottom" secondItem="lMl-oR-MYY" secondAttribute="bottom" id="jd2-x6-WM6"/>
+                            <constraint firstItem="a3u-On-8Em" firstAttribute="leading" secondItem="org-Wb-76d" secondAttribute="trailing" constant="13" id="qfg-ov-CYq"/>
+                            <constraint firstItem="foS-aC-TiT" firstAttribute="leading" secondItem="org-Wb-76d" secondAttribute="leading" id="swz-qI-vYn"/>
+                            <constraint firstAttribute="trailing" secondItem="foS-aC-TiT" secondAttribute="trailing" constant="64" id="tRt-Wa-RY9"/>
+                            <constraint firstItem="foS-aC-TiT" firstAttribute="top" secondItem="org-Wb-76d" secondAttribute="bottom" constant="17" id="yK0-42-wzr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="boxArtImage" destination="lMl-oR-MYY" id="r0T-fc-i7I"/>
+                        <outlet property="levelList" destination="foS-aC-TiT" id="Qvc-Ob-RNX"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="StartLevelSegue" id="cO8-Gy-7SS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Vs-qI-hIG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="PAP-UD-XAp" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4170.4433497536947" y="1381.5999999999999"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="quake-box" width="800" height="947"/>
+        <image name="quake-xp1-box" width="800" height="948"/>
+        <image name="quake-xp2-box" width="800" height="945"/>
+        <image name="quake_logo_background_2" width="1920" height="1080"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="nze-pR-jc7"/>
+        <segue reference="xtx-zS-WKG"/>
+    </inferredMetricsTieBreakers>
+</document>
