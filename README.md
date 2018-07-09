@@ -18,11 +18,11 @@ You will need to provide your own copies of the `id1` (Quake), `hipnoitc` (Missi
 
 You will need to drag your directories into the project and select "Create Folder References" and add them to both the Quake and QuakeTV targets. The folders will be blue if you've done it right:
 
-![folders](https://github.com/tomkidd/Quake-iOS11/raw/master/folders.png)
+![folders](https://github.com/tomkidd/Quake-iOS/raw/master/folders.png)
 
 Place the music in .ogg file format in a subdirectory of each folder called "music". The music for at least the original game can be found [here](https://www.moddb.com/games/quake/downloads/ultimate-quake-patch-v1-11). They need to be named `track02.ogg`, `track03.ogg`, etc. They have to start at 2 because the engine thinks track 1 is the data of the game. 
 
-You can read a lengthy blog article on how I did all this [here](http://schnapple.com/?page_id=1313&preview=true).
+You can read a lengthy blog article on how I did all this [here](http://schnapple.com/quake-for-ios-and-tvos-for-apple-tv/).
 
 This repo was based on the Google Cardboard port contained in this [Quake For OSX](https://github.com/Izhido/Quake_For_OSX) port by Izhido on GitHub. Background music support came from [QuakeSpasm](http://quakespasm.sourceforge.net/). On-screen joystick code came from [this repo](https://github.com/bradhowes/Joystick) by Brad Howe. 
 
