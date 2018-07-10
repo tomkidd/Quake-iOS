@@ -51,6 +51,7 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
         view.drawableColorFormat = .RGBA8888
         view.drawableStencilFormat = .format8
         view.bindDrawable()
+        self.preferredFramesPerSecond = 60
         
         glvr_mode = 0
         
@@ -62,49 +63,11 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
         #if os(tvOS)
         // note: this would prevent it from being accepted on the App Store
         
-//        func pressesBegan(presses: Set<UIPress>, with event: UIPressesEvent?) {
-//            if(presses.first?.type == UIPressType.menu) {
-//                // handle event
-//            } else {
-//                // perform default action (in your case, exit)
-//                super.pressesBegan(presses, with: event)
-//            }
-//        }
-//
-//        func pressesEnded(presses: Set<UIPress>, with event: UIPressesEvent?) {
-//            if(presses.first?.type == UIPressType.menu) {
-//                // handle event
-//            } else {
-//                // perform default action (in your case, exit)
-//                super.pressesBegan(presses, with: event)
-//            }
-//        }
-        
         let menuPressRecognizer = UITapGestureRecognizer()
         menuPressRecognizer.addTarget(self, action: #selector(GameViewController.menuButtonAction))
         menuPressRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.menu.rawValue)]
         
         self.view.addGestureRecognizer(menuPressRecognizer) 
-        
-//        func pressesBegan(presses: Set<UIPress>, withEvent event: UIPressesEvent?) {
-//            if(presses.first?.type == UIPressType.menu) {
-//                // handle event
-//            } else {
-//                // perform default action (in your case, exit)
-//                super.pressesBegan(presses, with: event)
-//            }
-//        }
-//
-//        p
-//
-//        pressesEnded(presses: Set<UIPress>, withEvent event: UIPressesEvent?) {
-//            if(presses.first?.type == UIPressType.menu) {
-//                // handle event
-//            } else {
-//                // perform default action (in your case, exit)
-//                super.pressesBegan(presses, with: event)
-//            }
-//        }
         
         #endif
         

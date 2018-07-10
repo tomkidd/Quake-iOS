@@ -330,7 +330,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quake-iOS/GameViewController.swift"
-            timestampString = "552842759.130224"
+            timestampString = "552954303.3088911"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
@@ -378,11 +378,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Quake-iOS/GameViewController.swift"
-            timestampString = "552842759.130569"
+            timestampString = "552954303.309229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "startup()"
             landmarkType = "7">
          </BreakpointContent>
