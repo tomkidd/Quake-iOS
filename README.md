@@ -14,7 +14,7 @@ Features
 
 This commit does not need any placeholder resources as it is not an update of an existing id Software port. 
 
-You will need to provide your own copies of the `id1` (Quake), `hipnoitc` (Mission Pack #1) and `rogue` (Mission Pack #2) directories from an existing instalation of Quake. You can grab the whole thing with expansions on [GOG](https://www.gog.com/game/quake_the_offering) or individually on Steam ([Quake](https://store.steampowered.com/app/2310/QUAKE/), [XP1](https://store.steampowered.com/app/9040/QUAKE_Mission_Pack_1_Scourge_of_Armagon/), [XP2](https://store.steampowered.com/app/9030/QUAKE_Mission_Pack_2_Dissolution_of_Eternity/))
+You will need to provide your own copies of the `id1` (Quake), `hipnotic` (Mission Pack #1) and `rogue` (Mission Pack #2) directories from an existing instalation of Quake. You can grab the whole thing with expansions on [GOG](https://www.gog.com/game/quake_the_offering) or individually on Steam ([Quake](https://store.steampowered.com/app/2310/QUAKE/), [XP1](https://store.steampowered.com/app/9040/QUAKE_Mission_Pack_1_Scourge_of_Armagon/), [XP2](https://store.steampowered.com/app/9030/QUAKE_Mission_Pack_2_Dissolution_of_Eternity/))
 
 You will need to drag your directories into the project and select "Create Folder References" and add them to both the Quake and QuakeTV targets. The folders will be blue if you've done it right:
 
@@ -28,6 +28,6 @@ This repo was based on the Google Cardboard port contained in this [Quake For OS
 
 [Video of Quake running on an iPhone X](https://www.youtube.com/watch?v=5awJDcu-cAs)
 
-[Video of DOOM running on an Apple TV](https://www.youtube.com/watch?v=jC_qnGjzO7s)
+[Video of Quake running on an Apple TV](https://www.youtube.com/watch?v=jC_qnGjzO7s)
 
 Have fun. For any questions I can be reached at tomkidd@gmail.com
