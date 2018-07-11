@@ -39,16 +39,30 @@
                                     <segue destination="TeH-JF-A3h" kind="show" identifier="GamePausedSegue" id="f8U-yD-dVD"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdK-F0-k7A">
+                                <rect key="frame" x="64" y="8" width="84" height="32"/>
+                                <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="17"/>
+                                <state key="normal" title="start game">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TLM-cF-6DN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ls9-wC-dDV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="P7L-df-kIN"/>
+                            <constraint firstItem="YdK-F0-k7A" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="SEj-jO-J1W"/>
                             <constraint firstItem="Ls9-wC-dDV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="ScX-db-dgG"/>
+                            <constraint firstItem="YdK-F0-k7A" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="a3V-7e-orG"/>
                             <constraint firstAttribute="trailing" secondItem="Ls9-wC-dDV" secondAttribute="trailing" constant="19" id="l6h-db-BDp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZQG-RF-Hzx"/>
                     <connections>
+                        <outlet property="pauseButton" destination="Ls9-wC-dDV" id="7Va-RM-w1q"/>
+                        <outlet property="startGameButton" destination="YdK-F0-k7A" id="QW6-Si-RnU"/>
                         <outlet property="view" destination="8bC-Xf-vdC" id="arI-yN-6ff"/>
                     </connections>
                 </viewController>
@@ -245,32 +259,41 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEZ-Uh-eDI">
-                                <rect key="frame" x="327.66666666666669" y="228" width="131" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="J5Q-TV-u4u"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="24"/>
-                                <state key="normal" title="Start Game">
-                                    <color key="titleColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="StartGameSegue" id="dn6-bs-Ug1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkw-AE-rbb">
-                                <rect key="frame" x="327.66666666666669" y="303" width="162" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="log-FF-M8t"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="24"/>
-                                <state key="normal" title="Select Episode">
-                                    <color key="titleColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="0k3-ng-Ggz" kind="show" identifier="SelectEpisodeSegue" id="rUy-38-y7s"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="LUG-UU-V6p">
+                                <rect key="frame" x="327.66666666666669" y="201.33333333333337" width="162" height="131"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEZ-Uh-eDI">
+                                        <rect key="frame" x="0.0" y="0.0" width="131" height="41"/>
+                                        <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="24"/>
+                                        <state key="normal" title="Start Game">
+                                            <color key="titleColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="StartGameSegue" id="dn6-bs-Ug1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkw-AE-rbb">
+                                        <rect key="frame" x="0.0" y="45" width="162" height="41"/>
+                                        <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="24"/>
+                                        <state key="normal" title="Select Episode">
+                                            <color key="titleColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="0k3-ng-Ggz" kind="show" identifier="SelectEpisodeSegue" id="rUy-38-y7s"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3u-WB-KyV">
+                                        <rect key="frame" x="0.0" y="89.999999999999972" width="121" height="41"/>
+                                        <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="24"/>
+                                        <state key="normal" title="Play Demo">
+                                            <color key="titleColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="PlayDemoSegue" id="fCI-l3-x1i"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBf-u5-UD2">
                                 <rect key="frame" x="22" y="43" width="30" height="30"/>
                                 <constraints>
@@ -282,30 +305,17 @@
                                     <segue destination="sEW-xl-gis" kind="unwind" unwindAction="exitToChooseGameControllerWithSegue:" id="3u1-df-Rla"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4X-WC-nl7">
-                                <rect key="frame" x="327.66666666666669" y="266.66666666666669" width="25.666666666666686" height="28.333333333333314"/>
-                                <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="24"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="u4X-WC-nl7" firstAttribute="top" secondItem="fEZ-Uh-eDI" secondAttribute="bottom" constant="8" id="30F-KL-zBe"/>
+                            <constraint firstItem="LUG-UU-V6p" firstAttribute="leading" secondItem="SHJ-Tz-Ks8" secondAttribute="trailing" constant="20.000000000000057" id="DKU-Ov-e3M"/>
                             <constraint firstAttribute="trailing" secondItem="I34-3T-ExN" secondAttribute="trailing" constant="20" id="DaI-k2-V4D"/>
-                            <constraint firstItem="fkw-AE-rbb" firstAttribute="top" secondItem="u4X-WC-nl7" secondAttribute="bottom" constant="8" id="Gq6-sQ-m9S"/>
                             <constraint firstItem="SHJ-Tz-Ks8" firstAttribute="leading" secondItem="sDb-sh-hsb" secondAttribute="leading" constant="63.999999999999986" id="I5H-wg-VTm"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fkw-AE-rbb" secondAttribute="trailing" constant="20" symbolic="YES" id="Llj-ht-Dp2"/>
-                            <constraint firstItem="u4X-WC-nl7" firstAttribute="leading" secondItem="fkw-AE-rbb" secondAttribute="leading" id="PMb-Oz-KUc"/>
+                            <constraint firstItem="LUG-UU-V6p" firstAttribute="bottom" secondItem="SHJ-Tz-Ks8" secondAttribute="bottom" id="RgJ-fj-Cto"/>
                             <constraint firstItem="SHJ-Tz-Ks8" firstAttribute="centerY" secondItem="sDb-sh-hsb" secondAttribute="centerY" id="Wzo-0s-FQ5"/>
                             <constraint firstItem="I34-3T-ExN" firstAttribute="top" secondItem="SHJ-Tz-Ks8" secondAttribute="top" id="YHI-KO-pY0"/>
-                            <constraint firstItem="fkw-AE-rbb" firstAttribute="leading" secondItem="SHJ-Tz-Ks8" secondAttribute="trailing" constant="20" id="Z22-Nm-Bb3"/>
                             <constraint firstItem="SHJ-Tz-Ks8" firstAttribute="width" secondItem="sDb-sh-hsb" secondAttribute="width" multiplier="0.3" id="dmg-id-8Hv"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="u4X-WC-nl7" secondAttribute="trailing" constant="20" symbolic="YES" id="ieQ-OP-gZq"/>
                             <constraint firstItem="nBf-u5-UD2" firstAttribute="top" secondItem="znu-lo-Wpa" secondAttribute="bottom" constant="43" id="q4t-FZ-af8"/>
-                            <constraint firstItem="fkw-AE-rbb" firstAttribute="bottom" secondItem="SHJ-Tz-Ks8" secondAttribute="bottom" id="rGh-0j-7ZZ"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fEZ-Uh-eDI" secondAttribute="trailing" constant="20" symbolic="YES" id="rGo-Mx-Mma"/>
-                            <constraint firstItem="fEZ-Uh-eDI" firstAttribute="leading" secondItem="u4X-WC-nl7" secondAttribute="leading" id="s5X-ir-lU6"/>
                             <constraint firstItem="nBf-u5-UD2" firstAttribute="leading" secondItem="sDb-sh-hsb" secondAttribute="leading" constant="22" id="uoi-ZI-5U6"/>
                             <constraint firstItem="I34-3T-ExN" firstAttribute="leading" secondItem="SHJ-Tz-Ks8" secondAttribute="trailing" constant="23.333333333333371" id="yhk-Ms-07X"/>
                         </constraints>
@@ -596,6 +606,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="nze-pR-jc7"/>
-        <segue reference="xtx-zS-WKG"/>
+        <segue reference="fCI-l3-x1i"/>
     </inferredMetricsTieBreakers>
 </document>

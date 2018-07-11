@@ -32,6 +32,7 @@ class MainMenuViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DemoSegue" {
             (segue.destination as! GameViewController).additionalCommandLine = " demos"
+            (segue.destination as! GameViewController).demoMode = true
         } else if segue.identifier == "StartGameSegue" {
             (segue.destination as! GameViewController).additionalCommandLine = " +map start"
             (segue.destination as! GameViewController).selectedGame = .Quake

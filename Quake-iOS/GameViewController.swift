@@ -18,13 +18,18 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
     var context: EAGLContext!
 
     var selectedGame:QuakeGame!
-
+    
+    @IBOutlet weak var startGameButton: UIButton!
+    @IBOutlet weak var pauseButton: UIButton!
+    
     // todo: do expansion packs better
     var additionalCommandLine:String = ""
     
     var gamePaused = false
     
     var quickLoadGame = false
+    
+    var demoMode = false
     
     var joysticksInitialized = false
     
@@ -72,6 +77,9 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
         #endif
         
         startup()
+        
+        startGameButton.isHidden = !demoMode
+        pauseButton.isHidden = demoMode
     }
     
     @objc func menuButtonAction() {
@@ -303,6 +311,14 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
     #endif
     
     @IBAction func exitToGameViewController(segue: UIStoryboardSegue) {
+    }
+    
+    @IBAction func startGame(_ sender: UIButton) {
+        demoMode = false
+        startGameButton.isHidden = !demoMode
+        pauseButton.isHidden = demoMode
+
+        Sys_Cbuf_AddText("map start\n");
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
