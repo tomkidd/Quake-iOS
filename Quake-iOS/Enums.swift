@@ -11,4 +11,5 @@ enum QuakeGame: Int {
     case Quake
     case QuakeXP1
     case QuakeXP2
+    case QuakeEp5
 }

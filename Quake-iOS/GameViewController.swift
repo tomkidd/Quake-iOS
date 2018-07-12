@@ -269,6 +269,8 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
             selectedGameString = "hipnotic"
         case .QuakeXP2:
             selectedGameString = "rogue"
+        case .QuakeEp5:
+            selectedGameString = "dopa"
         default:
             selectedGameString = "id1"
         }

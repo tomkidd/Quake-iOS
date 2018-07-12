@@ -97,6 +97,8 @@
 		A13EC59B20EA67B200CEB727 /* GameOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13EC59920EA67B200CEB727 /* GameOptionsViewController.swift */; };
 		A13EC59D20EAE44800CEB727 /* SelectEpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13EC59C20EAE44800CEB727 /* SelectEpisodeViewController.swift */; };
 		A13EC59E20EAE44800CEB727 /* SelectEpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13EC59C20EAE44800CEB727 /* SelectEpisodeViewController.swift */; };
+		A1834E0F20F70C07001A17BB /* dopa in Resources */ = {isa = PBXBuildFile; fileRef = A1834E0E20F70C07001A17BB /* dopa */; };
+		A1834E1020F70C07001A17BB /* dopa in Resources */ = {isa = PBXBuildFile; fileRef = A1834E0E20F70C07001A17BB /* dopa */; };
 		A1ABE1FB20E33E25008FCD88 /* JoyStickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ABE1FA20E33E25008FCD88 /* JoyStickView.swift */; };
 		A1ABE1FD20E33EA2008FCD88 /* CoreGraphics+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ABE1FC20E33EA2008FCD88 /* CoreGraphics+Additions.swift */; };
 		A1ABE1FF20E48923008FCD88 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ABE1FE20E48923008FCD88 /* MainMenuViewController.swift */; };
@@ -420,6 +422,7 @@
 		A13EC59620EA672F00CEB727 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		A13EC59920EA67B200CEB727 /* GameOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOptionsViewController.swift; sourceTree = "<group>"; };
 		A13EC59C20EAE44800CEB727 /* SelectEpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEpisodeViewController.swift; sourceTree = "<group>"; };
+		A1834E0E20F70C07001A17BB /* dopa */ = {isa = PBXFileReference; lastKnownFileType = folder; name = dopa; path = ../../../../../Applications/Quake/dopa; sourceTree = "<group>"; };
 		A1ABE1FA20E33E25008FCD88 /* JoyStickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoyStickView.swift; sourceTree = "<group>"; };
 		A1ABE1FC20E33EA2008FCD88 /* CoreGraphics+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Additions.swift"; sourceTree = "<group>"; };
 		A1ABE1FE20E48923008FCD88 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
@@ -529,6 +532,7 @@
 				A1BDA19C20AFE59900CB8D25 /* id1 */,
 				A1ABE20520E4A071008FCD88 /* hipnotic */,
 				A1ABE20420E4A071008FCD88 /* rogue */,
+				A1834E0E20F70C07001A17BB /* dopa */,
 				EFA69186850D4E8E75706323 /* Frameworks */,
 				2839AD411C5D6EF700CEC48E /* Products */,
 				2839AE031C5D6FFD00CEC48E /* Quake */,
@@ -909,6 +913,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28C4FA7D1CE79617001CF82D /* gl_polygon1textureprogram.vsh in Resources */,
+				A1834E0F20F70C07001A17BB /* dopa in Resources */,
 				28C4FA781CE79617001CF82D /* gl_coloredpolygonnotextureprogram.fsh in Resources */,
 				28C4FA821CE79617001CF82D /* gl_textprogram.fsh in Resources */,
 				28E641201D16F7B200FF3D8F /* gl_intensitypolygon1textureprogram.fsh in Resources */,
@@ -956,6 +961,7 @@
 				A1FC52D820D599C4001DF6CA /* gl_textprogram.vsh in Resources */,
 				A1ABE20720E4A072008FCD88 /* rogue in Resources */,
 				A1FC52DA20D599C4001DF6CA /* gl_tintedpolygon1textureprogram.vsh in Resources */,
+				A1834E1020F70C07001A17BB /* dopa in Resources */,
 				A1FC52CD20D599C4001DF6CA /* gl_intensitypolygon1textureprogram.fsh in Resources */,
 				A1FC52C720D599C4001DF6CA /* gl_coloredpolygon1textureprogram.fsh in Resources */,
 				A1FC52D320D599C4001DF6CA /* gl_polygon2texturesprogram.fsh in Resources */,

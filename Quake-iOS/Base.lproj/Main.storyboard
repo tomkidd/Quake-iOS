@@ -589,6 +589,20 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzN-AG-61S">
+                                <rect key="frame" x="691" y="340" width="57" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Lov-se-jTh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DpQuake" family="DpQuake" pointSize="24"/>
+                                <state key="normal" title="Demo">
+                                    <color key="titleColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startEpisode:" destination="daW-aI-0dI" eventType="touchUpInside" id="TFe-XH-w77"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="GameDemoSegue" id="HeE-kT-y37"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -597,6 +611,7 @@
                             <constraint firstItem="org-Wb-76d" firstAttribute="top" secondItem="lMl-oR-MYY" secondAttribute="top" id="FPW-Fu-e2Q"/>
                             <constraint firstItem="a3u-On-8Em" firstAttribute="centerY" secondItem="org-Wb-76d" secondAttribute="centerY" id="IxW-sW-IBD"/>
                             <constraint firstItem="lMl-oR-MYY" firstAttribute="leading" secondItem="Y7O-Mb-dza" secondAttribute="leading" constant="64" id="PGV-ZT-HjL"/>
+                            <constraint firstItem="zzN-AG-61S" firstAttribute="trailing" secondItem="foS-aC-TiT" secondAttribute="trailing" id="Qss-1t-FjY"/>
                             <constraint firstItem="qX6-8b-N0E" firstAttribute="leading" secondItem="Y7O-Mb-dza" secondAttribute="leading" constant="22" id="X0R-cw-Cvq"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="a3u-On-8Em" secondAttribute="trailing" constant="20" symbolic="YES" id="bKp-GB-aWk"/>
                             <constraint firstItem="lMl-oR-MYY" firstAttribute="width" secondItem="Y7O-Mb-dza" secondAttribute="width" multiplier="0.3" id="dHM-LK-j0X"/>
@@ -604,6 +619,8 @@
                             <constraint firstItem="lMl-oR-MYY" firstAttribute="centerY" secondItem="Y7O-Mb-dza" secondAttribute="centerY" id="ejb-6F-ahd"/>
                             <constraint firstItem="org-Wb-76d" firstAttribute="leading" secondItem="lMl-oR-MYY" secondAttribute="trailing" constant="22.333333333333371" id="h3n-fj-sYq"/>
                             <constraint firstItem="foS-aC-TiT" firstAttribute="bottom" secondItem="lMl-oR-MYY" secondAttribute="bottom" id="jd2-x6-WM6"/>
+                            <constraint firstItem="zzN-AG-61S" firstAttribute="top" secondItem="foS-aC-TiT" secondAttribute="bottom" constant="8" id="mzW-D3-2Cz"/>
+                            <constraint firstItem="zzN-AG-61S" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Y7O-Mb-dza" secondAttribute="leading" constant="20" symbolic="YES" id="pAI-I2-nFM"/>
                             <constraint firstItem="a3u-On-8Em" firstAttribute="leading" secondItem="org-Wb-76d" secondAttribute="trailing" constant="13" id="qfg-ov-CYq"/>
                             <constraint firstItem="foS-aC-TiT" firstAttribute="leading" secondItem="org-Wb-76d" secondAttribute="leading" id="swz-qI-vYn"/>
                             <constraint firstAttribute="trailing" secondItem="foS-aC-TiT" secondAttribute="trailing" constant="64" id="tRt-Wa-RY9"/>
@@ -613,6 +630,7 @@
                     <connections>
                         <outlet property="boxArtImage" destination="lMl-oR-MYY" id="r0T-fc-i7I"/>
                         <outlet property="levelList" destination="foS-aC-TiT" id="Qvc-Ob-RNX"/>
+                        <outlet property="startDemoButton" destination="zzN-AG-61S" id="m4c-6g-WDT"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="StartLevelSegue" id="cO8-Gy-7SS"/>
                     </connections>
                 </viewController>
@@ -630,6 +648,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="nze-pR-jc7"/>
-        <segue reference="fCI-l3-x1i"/>
+        <segue reference="HeE-kT-y37"/>
     </inferredMetricsTieBreakers>
 </document>

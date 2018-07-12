@@ -15,6 +15,9 @@ class SelectLevelViewController: UIViewController {
 
     @IBOutlet weak var boxArtImage: UIImageView!
     @IBOutlet weak var levelList: UITableView!
+    
+    @IBOutlet weak var startDemoButton: UIButton!
+    
 
     let quakeLevels:[[(map: String, name: String)]] = [[(map: "e1m1", name: "E1M1: the Slipgate Complex"),
                                                         (map: "e1m2", name: "E1M2: Castle of the Damned"),
@@ -45,7 +48,16 @@ class SelectLevelViewController: UIViewController {
                                                         (map: "e4m5", name: "E4M5: Hell's Atrium"),
                                                         (map: "e4m6", name: "E4M6: The Pain Maze"),
                                                         (map: "e4m7", name: "E4M7: Azure Agony"),
-                                                        (map: "e4m8", name: "E4M8: the Nameless City")]]
+                                                        (map: "e4m8", name: "E4M8: the Nameless City")],
+                                                       [(map: "e5m1", name: "E5M1: The Military Base"),
+                                                        (map: "e5m2", name: "E5M2: The Power Supply"),
+                                                        (map: "e5m3", name: "E5M3: The Dark Days"),
+                                                        (map: "e5m4", name: "E5M4: The Catacombs"),
+                                                        (map: "e5m5", name: "E5M5: The Stronghold"),
+                                                        (map: "e5m6", name: "E5M6: The Underworld"),
+                                                        (map: "e5m7", name: "E5M7: The Otherworld"),
+                                                        (map: "e5m8", name: "E5M8: The House of Doom"),
+                                                        (map: "e5end", name: "E5END: The Year Zero")]]
     
     let quakeXP1Levels:[[(map: String, name: String)]] = [[(map: "hip1m1", name: "HIP1M1: The Pumping Station"),
                                                            (map: "hip1m2", name: "HIP1M2: Storage Facility"),
@@ -91,6 +103,10 @@ class SelectLevelViewController: UIViewController {
             boxArtImage.image = UIImage(named: "quake-xp1-box")
         case .QuakeXP2:
             boxArtImage.image = UIImage(named: "quake-xp2-box")
+        case .QuakeEp5:
+            boxArtImage.image = UIImage(named: "quake-box")
+            // (continue to be) disabled until I figure out why DOPA's demos won't run 
+            //startDemoButton.isHidden = false
         default: ()
         }
         
@@ -118,11 +134,14 @@ class SelectLevelViewController: UIViewController {
             commandLine = "-game hipnotic -hipnotic +map start"
         case .QuakeXP2:
             commandLine = "-rogue +map start"
+        case .QuakeEp5:
+            commandLine = "-game dopa +map start"
         default: ()
         }
         
         performSegue(withIdentifier: "StartLevelSegue", sender: self)
     }
+    
     
 
     // MARK: - Navigation
@@ -130,6 +149,10 @@ class SelectLevelViewController: UIViewController {
         if segue.identifier == "StartLevelSegue" {
             (segue.destination as! GameViewController).additionalCommandLine = commandLine
             (segue.destination as! GameViewController).selectedGame = selectedGame
+        } else if segue.identifier == "GameDemoSegue" {
+            (segue.destination as! GameViewController).additionalCommandLine = "-game dopa demos"
+            (segue.destination as! GameViewController).selectedGame = selectedGame
+            (segue.destination as! GameViewController).demoMode = true
         }
     }
 
@@ -144,6 +167,8 @@ extension SelectLevelViewController: UITableViewDelegate {
             commandLine = "-game hipnotic -hipnotic +map \(quakeXP1Levels[selectedEpisode][indexPath.row].map)"
         case .QuakeXP2:
             commandLine = "-rogue +map \(quakeXP2Levels[selectedEpisode][indexPath.row].map)"
+        case .QuakeEp5:
+            commandLine = "-game dopa +map \(quakeLevels[selectedEpisode][indexPath.row].map)"
         default: ()
         }
         
@@ -161,6 +186,8 @@ extension SelectLevelViewController: UITableViewDataSource {
             return quakeXP1Levels[selectedEpisode].count
         case .QuakeXP2:
             return quakeXP2Levels[selectedEpisode].count
+        case .QuakeEp5:
+            return quakeLevels[selectedEpisode].count
         default: ()
         }
         
@@ -181,6 +208,8 @@ extension SelectLevelViewController: UITableViewDataSource {
             cell.textLabel?.text = quakeXP1Levels[selectedEpisode][indexPath.row].name
         case .QuakeXP2:
             cell.textLabel?.text = quakeXP2Levels[selectedEpisode][indexPath.row].name
+        case .QuakeEp5:
+            cell.textLabel?.text = quakeLevels[selectedEpisode][indexPath.row].name
         default: ()
         }
         return cell

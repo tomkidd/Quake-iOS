@@ -18,7 +18,8 @@ class SelectEpisodeViewController: UIViewController {
     let quakeEpisodes = ["Episode 1: Dimension of the Doomed",
                          "Episode 2: The Realm of Black Magic",
                          "Episode 3: The Netherworld",
-                         "Episode 4: The Elder World"
+                         "Episode 4: The Elder World",
+                         "Episode 5: Dimension of the Past"
     ]
     
     let quakeXP1Episodes = ["Episode 1: Fortress of the Dead",
@@ -64,7 +65,11 @@ class SelectEpisodeViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SelectLevelSegue" {
             (segue.destination as! SelectLevelViewController).selectedEpisode = selectedEpisode
-            (segue.destination as! SelectLevelViewController).selectedGame = selectedGame
+            if selectedEpisode == 4 {
+                (segue.destination as! SelectLevelViewController).selectedGame = .QuakeEp5
+            } else {
+                (segue.destination as! SelectLevelViewController).selectedGame = selectedGame
+            }
         }
     }
     
