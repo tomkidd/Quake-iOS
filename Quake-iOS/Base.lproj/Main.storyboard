@@ -52,6 +52,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YdK-F0-k7A" secondAttribute="trailingMargin" id="5CB-RB-xNO"/>
                             <constraint firstItem="Ls9-wC-dDV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="P7L-df-kIN"/>
                             <constraint firstItem="YdK-F0-k7A" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="SEj-jO-J1W"/>
                             <constraint firstItem="Ls9-wC-dDV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="ScX-db-dgG"/>
@@ -134,15 +135,38 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RwI-Fd-ufl">
+                                <rect key="frame" x="204.66666666666666" y="184" width="402.66666666666674" height="31"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9FM-Fl-ZE6">
+                                        <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                        <color key="onTintColor" red="0.87058824300000004" green="0.71372550729999995" blue="0.34509804840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="tiltAimingToggle:" destination="TeH-JF-A3h" eventType="valueChanged" id="BLi-rD-9Ow"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tilt aiming mode (experimental!)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N4q-9Y-DCV">
+                                        <rect key="frame" x="57.000000000000028" y="0.0" width="345.66666666666674" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="SlC-2E-k6d" firstAttribute="centerX" secondItem="WTd-hu-0pJ" secondAttribute="centerX" id="94w-YY-P2h"/>
                             <constraint firstItem="SlC-2E-k6d" firstAttribute="top" secondItem="fmf-1o-nLG" secondAttribute="bottom" constant="20" id="JFB-O5-pJz"/>
+                            <constraint firstItem="RwI-Fd-ufl" firstAttribute="top" secondItem="sp2-QV-WNi" secondAttribute="bottom" constant="30" id="Qge-bI-tGx"/>
+                            <constraint firstItem="RwI-Fd-ufl" firstAttribute="centerX" secondItem="sp2-QV-WNi" secondAttribute="centerX" id="UTs-lj-1GS"/>
                             <constraint firstItem="bkb-oU-JWW" firstAttribute="centerX" secondItem="WTd-hu-0pJ" secondAttribute="centerX" id="aFa-Kf-Hxe"/>
                             <constraint firstItem="bkb-oU-JWW" firstAttribute="top" secondItem="SlC-2E-k6d" secondAttribute="bottom" constant="8" id="tPL-2R-yYr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tiltAimingSwitch" destination="9FM-Fl-ZE6" id="Olc-j3-eZS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XG6-je-GoP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="D1U-YH-5pn" userLabel="Exit" sceneMemberID="exit"/>

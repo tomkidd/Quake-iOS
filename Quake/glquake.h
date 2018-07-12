@@ -368,6 +368,8 @@ extern GLfloat gl_rendermirror_color[4];
 extern GLfloat gl_polygon_matrix[16];
 extern GLfloat gl_projection_matrix[16];
 
+extern qboolean tiltaim_enabled;
+
 extern qboolean glvr_enabled;
 
 extern int glvr_mode;

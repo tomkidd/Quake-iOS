@@ -37,7 +37,13 @@ void IN_Move (usercmd_t *cmd)
         
         V_StopPitchDrift();
         
-        cl.viewangles[PITCH] += in_pitchangle * in_anglescaling.value * 90;
+        if (tiltaim_enabled) {
+            cl.viewangles[PITCH] = (in_pitchangle + 1.5) * 90;
+        } else {
+            cl.viewangles[PITCH] += in_pitchangle * in_anglescaling.value * 90;
+        }
+        
+//        printf("in_pitchangle: %f cl.viewangles[PITCH]: %f\n", in_pitchangle, cl.viewangles[PITCH]);
     }
     else
     {

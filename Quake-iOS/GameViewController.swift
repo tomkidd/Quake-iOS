@@ -9,6 +9,10 @@
 import GLKit
 import GameController
 
+#if os(iOS)
+import CoreMotion
+#endif
+
 public var gameInterrupted : Bool = false
 
 public var startGame : Bool = false
@@ -18,6 +22,9 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
     var context: EAGLContext!
 
     var selectedGame:QuakeGame!
+    
+    // TODO: standardize user defaults pattern
+    let defaults = UserDefaults()
     
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
@@ -32,6 +39,10 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
     var demoMode = false
     
     var joysticksInitialized = false
+    
+    #if os(iOS)
+    let motionManager: CMMotionManager = CMMotionManager()
+    #endif
     
     override func viewDidLoad()
     {
@@ -78,8 +89,8 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
         
         startup()
         
-        startGameButton.isHidden = !demoMode
-        pauseButton.isHidden = demoMode
+        startGameButton?.isHidden = !demoMode
+        pauseButton?.isHidden = demoMode
     }
     
     @objc func menuButtonAction() {
@@ -150,6 +161,14 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
             Sys_Key_Event(143, qboolean(0))
             quickLoadGame = false
         }
+        
+        
+        #if os(iOS)
+        tiltaim_enabled = qboolean.init(UInt32(defaults.integer(forKey: "tiltAiming")))
+        if defaults.integer(forKey: "tiltAiming") == 1 {
+            motionManager.startDeviceMotionUpdates()
+        }
+        #endif
 
     }
     
@@ -177,6 +196,16 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
             glvr_projection = (0.839099705, 0.0, 0.0, 0.0, 0.0, 1.49173284, 0.0, 0.0, 0.0, 0.0, -1.00195503, -1.0, 0.0, 0.0, -8.00782013, 0.0)
             
             frame_lapse = Float(controller.timeSinceLastUpdate)
+            
+            #if os(iOS)
+            if defaults.integer(forKey: "tiltAiming") == 1 {
+                if let data = motionManager.deviceMotion {
+                    //                print("pitch: \(data.attitude.pitch) yaw: \(data.attitude.yaw) roll: \(data.attitude.roll)")
+                    
+                    in_pitchangle = Float(-data.attitude.roll)
+                }
+            }
+            #endif
             
             Sys_Frame()
         }

@@ -8,9 +8,18 @@
 import UIKit
 
 class GamePausedViewController: UIViewController {
+    
+    #if os(iOS)
+    @IBOutlet weak var tiltAimingSwitch: UISwitch!
+    #endif
+    let defaults = UserDefaults()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        #if os(iOS)
+        tiltAimingSwitch.isOn = defaults.integer(forKey: "tiltAiming") == 1
+        #endif
 
         // Do any additional setup after loading the view.
     }
@@ -38,6 +47,12 @@ class GamePausedViewController: UIViewController {
         Host_Shutdown()
         navigationController?.popToRootViewController(animated: true)
     }
+    
+    #if os(iOS)
+    @IBAction func tiltAimingToggle(_ sender: UISwitch) {
+        defaults.set(sender.isOn ? 1 : 0, forKey: "tiltAiming")
+    }
+    #endif
     
 
     /*

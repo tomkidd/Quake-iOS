@@ -141,6 +141,8 @@ GLfloat gl_rendermirror_color[4];
 GLfloat gl_polygon_matrix[16];
 GLfloat gl_projection_matrix[16];
 
+qboolean tiltaim_enabled;
+
 qboolean glvr_enabled;
 
 int glvr_mode;
