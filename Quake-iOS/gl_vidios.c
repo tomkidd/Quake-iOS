@@ -145,9 +145,6 @@ qboolean tiltaim_enabled;
 
 qboolean glvr_enabled;
 
-int glvr_eyecount;
-int glvr_eyeindex;
-
 GLfloat glvr_viewportx;
 GLfloat glvr_viewporty;
 GLfloat glvr_viewportwidth;

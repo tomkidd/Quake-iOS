@@ -466,43 +466,6 @@ void Sys_Init(const char* resourcesDir, const char* documentsDir, const char* co
     Host_Init (&parms);
 }
 
-void Sys_FrameBeforeRender()
-{
-    if (setjmp (host_abortserver) )
-        return;			// something bad happened, or the server disconnected
-
-    sb_updates = 0;
-    
-    block_drawing = true;
-    
-    Host_FrameBeforeRender(frame_lapse);
-}
-
-void Sys_FrameRender()
-{
-    if (setjmp (host_abortserver) )
-        return;			// something bad happened, or the server disconnected
-
-    block_drawing = false;
-    
-    glViewport(glvr_viewportx, glvr_viewporty, glvr_viewportwidth, glvr_viewportheight);
-    glScissor(glvr_viewportx, glvr_viewporty, glvr_viewportwidth, glvr_viewportheight);
-
-    SCR_UpdateScreen();
-    
-    block_drawing = true;
-}
-
-void Sys_FrameAfterRender()
-{
-    if (setjmp (host_abortserver) )
-        return;			// something bad happened, or the server disconnected
-
-    Host_FrameAfterRender();
-    
-    host_framecount++;
-}
-
 void Sys_Frame()
 {
     Host_Frame(frame_lapse);

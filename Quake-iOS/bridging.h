@@ -42,12 +42,6 @@ void Sys_Init(const char* resourcesDir, const char* documentsDir, const char* co
 
 void Sys_Frame();
 
-void Sys_FrameBeforeRender();
-
-void Sys_FrameRender();
-
-void Sys_FrameAfterRender();
-
 int Sys_MessagesCount();
 
 char* Sys_GetMessage(int i);

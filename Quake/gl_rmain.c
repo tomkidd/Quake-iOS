@@ -1321,24 +1321,14 @@ void R_Clear (void)
 		gldepthmax = 0.5;
 		glDepthFunc (GL_LEQUAL);
 	}
-	else if (gl_ztrick.value)
+    else if (gl_ztrick.value) // todo: eliminate
 	{
 		static int trickframe;
 
 		if (gl_clear.value)
 			glClear (GL_COLOR_BUFFER_BIT);
 
-        if (glvr_enabled)
-        {
-            if (glvr_eyeindex == 0)
-            {
-                trickframe++;
-            }
-        }
-        else
-        {
-            trickframe++;
-        }
+        trickframe++;
         
 		if (trickframe & 1)
 		{
