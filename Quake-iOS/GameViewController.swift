@@ -225,12 +225,6 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
         gl_screenwidth = Int32(UIScreen.main.bounds.size.width * UIScreen.main.scale)
         gl_screenheight = Int32(UIScreen.main.bounds.size.height * UIScreen.main.scale)
         
-        glvr_viewportx = 0;
-        glvr_viewporty = 0;
-        glvr_viewportwidth = GLfloat(gl_screenwidth);
-        glvr_viewportheight = GLfloat(gl_screenheight);
-        
-        
         let ipAddress = UserDefaults.standard.string(forKey: "net_ipaddress")
         
         if ipAddress != nil && !ipAddress!.isEmpty

@@ -372,11 +372,6 @@ extern qboolean tiltaim_enabled;
 
 extern qboolean glvr_enabled;
 
-extern GLfloat glvr_viewportx;
-extern GLfloat glvr_viewporty;
-extern GLfloat glvr_viewportwidth;
-extern GLfloat glvr_viewportheight;
-
 extern GLfloat glvr_eyetranslation[16];
 extern GLfloat glvr_rotation[16];
 extern GLfloat glvr_projection[16];
