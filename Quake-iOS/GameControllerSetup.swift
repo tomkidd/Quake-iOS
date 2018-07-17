@@ -57,16 +57,8 @@ class GameControllerSetup: NSObject
                 
                 remote!.extendedGamepad!.buttonA.pressedChangedHandler = { (button: GCControllerButtonInput, value: Float, pressed: Bool) -> () in
                     
-//                    if startGame
-//                    {
                         Sys_Key_Event(32, qboolean(pressed ? 1 : 0)) // K_ENTER, true / false
-//                    }
-//                    else if !pressed
-//                    {
-//                        startGame = true
-//
-//                        currentViewController!.navigationController!.popToRootViewController(animated: true)
-//                    }
+
                 }
                 
                 remote!.extendedGamepad!.buttonB.pressedChangedHandler = { (button: GCControllerButtonInput, value: Float, pressed: Bool) -> () in
@@ -80,8 +72,6 @@ class GameControllerSetup: NSObject
                 }
                 
                 remote!.extendedGamepad!.leftThumbstick.xAxis.valueChangedHandler = { (button: GCControllerAxisInput, value: Float) -> () in
-                    
-                    print("leftThumbstick.xAxis.valueChangedHandler value: \(value)")
                     
                     in_forwardmove = value
                     

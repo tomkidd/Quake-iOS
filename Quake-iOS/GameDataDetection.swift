@@ -20,8 +20,6 @@ class GameDataDetection: NSObject
     
     static func detect()
     {
-//        let documentsDir = try! FileManager().url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).path
-        
         let documentsDir = Bundle.main.resourcePath!
         
         let id1pak0Attributes = try? FileManager.default.attributesOfItem(atPath: "\(documentsDir)/id1/pak0.pak") as NSDictionary

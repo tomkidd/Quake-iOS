@@ -202,8 +202,6 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
             #if os(iOS)
             if defaults.integer(forKey: "tiltAiming") == 1 {
                 if let data = motionManager.deviceMotion {
-                    //                print("pitch: \(data.attitude.pitch) yaw: \(data.attitude.yaw) roll: \(data.attitude.roll)")
-                    
                     in_pitchangle = Float(-data.attitude.roll)
                 }
             }
