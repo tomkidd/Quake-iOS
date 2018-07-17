@@ -1394,10 +1394,7 @@ Draw_FadeScreen
 */
 void Draw_FadeScreen (void)
 {
-    if (glvr_enabled)
-    {
-        return;
-    }
+    // note: glvr_enabled exited this function immediately. Don't know why. -tkidd
 
     glEnable(GL_BLEND);
     
@@ -1476,23 +1473,14 @@ Setup as if the screen was 320*200
 */
 void GL_Set2D (void)
 {
-    if (glvr_enabled)
-    {
-        GL_Identity (gl_textandfill_matrix);
-        
-        GL_Translate (gl_textandfill_matrix, -2.0, 1.2, 0.0);
-        GL_Scale (gl_textandfill_matrix, 4.0 / vid.width, -4.0 / vid.height, 1.0);
-        
-        GL_MultiplyLeft (gl_textandfill_matrix, glvr_eyetranslation);
-        
-        GL_MultiplyRight (glvr_projection, gl_textandfill_matrix);
-    }
-    else
-    {
-        glViewport (glx, gly, glwidth, glheight);
-        
-        GL_Ortho(gl_textandfill_matrix, 0.0, vid.width, vid.height, 0.0, -99999.0, 99999.0);
-    }
+    GL_Identity (gl_textandfill_matrix);
+    
+    GL_Translate (gl_textandfill_matrix, -2.0, 1.2, 0.0);
+    GL_Scale (gl_textandfill_matrix, 4.0 / vid.width, -4.0 / vid.height, 1.0);
+    
+    GL_MultiplyLeft (gl_textandfill_matrix, gl_translation);
+    
+    GL_MultiplyRight (gl_projection, gl_textandfill_matrix);
     
     glDisable (GL_DEPTH_TEST);
     glDisable (GL_CULL_FACE);

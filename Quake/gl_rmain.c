@@ -128,10 +128,7 @@ void R_ApplyWorld (void)
 
     GL_MultiplyLeft (gl_polygon_matrix, r_world_translate_matrix);
 
-    if (glvr_enabled)
-    {
-        GL_MultiplyLeft (gl_polygon_matrix, glvr_eyetranslation);
-    }
+    GL_MultiplyLeft (gl_polygon_matrix, gl_translation);
 }
 
 void R_RotateForEntity (entity_t *e)
@@ -147,15 +144,7 @@ void R_RotateForEntity (entity_t *e)
 
 void R_ApplyProjection (void)
 {
-    // *** THIS ONE BREAKS SHIT
-    if (glvr_enabled)
-    {
-        GL_MultiplyRight (glvr_projection, gl_polygon_matrix);
-    }
-    else
-    {
-        GL_MultiplyRight (gl_projection_matrix, gl_polygon_matrix);
-    }
+    GL_MultiplyRight (gl_projection, gl_polygon_matrix);
 }
 
 /*
@@ -1001,14 +990,7 @@ void R_PolyBlend (void)
     GL_Rotate (transform, -90.0,  1.0, 0.0, 0.0);	    // put Z going up
     GL_Rotate (transform, 90.0,  0.0, 0.0, 1.0);	    // put Z going up
 
-    if (glvr_enabled)
-    {
-        GL_MultiplyRight (glvr_projection, transform);
-    }
-    else
-    {
-        GL_MultiplyRight (gl_projection_matrix, transform);
-    }
+    GL_MultiplyRight (gl_projection, transform);
 
     glUniformMatrix4fv(gl_polygonnotextureprogram_transform, 1, 0, transform);
 
@@ -1220,11 +1202,6 @@ void R_SetupGL (void)
 		x = y2 = 0;
 		w = h = 256;
 	}
-
-    if (!glvr_enabled)
-    {
-        glViewport (glx + x, gly + y2, w, h);
-    }
 
     screenaspect = (float)r_refdef.vrect.width/r_refdef.vrect.height;
 //	yfov = 2*atan((float)r_refdef.vrect.height/r_refdef.vrect.width)*180/M_PI;

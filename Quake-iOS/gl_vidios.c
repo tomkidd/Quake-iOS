@@ -143,10 +143,8 @@ GLfloat gl_projection_matrix[16];
 
 qboolean tiltaim_enabled;
 
-qboolean glvr_enabled;
-
-GLfloat glvr_eyetranslation[16];
-GLfloat glvr_projection[16];
+GLfloat gl_translation[16];
+GLfloat gl_projection[16];
 
 unsigned short	d_8to16table[256];
 unsigned*	d_8to24table;
@@ -435,8 +433,6 @@ void GL_Init (void)
     glUniform1i(gl_polygon2texturesprogram_texture1, 1);
 
     GL_Use (0);
-    
-    glvr_enabled = true;
     
     glClearColor (1,0,0,0);
     glEnable(GL_DEPTH_TEST);

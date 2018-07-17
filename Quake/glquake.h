@@ -370,10 +370,8 @@ extern GLfloat gl_projection_matrix[16];
 
 extern qboolean tiltaim_enabled;
 
-extern qboolean glvr_enabled;
-
-extern GLfloat glvr_eyetranslation[16];
-extern GLfloat glvr_projection[16];
+extern GLfloat gl_translation[16];
+extern GLfloat gl_projection[16];
 
 void GL_Use (GLuint program);
 

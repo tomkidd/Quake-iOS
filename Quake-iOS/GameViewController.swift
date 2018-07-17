@@ -194,8 +194,8 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
                 return
             }
             
-            glvr_eyetranslation = (1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0)
-            glvr_projection = (0.839099705, 0.0, 0.0, 0.0, 0.0, 1.49173284, 0.0, 0.0, 0.0, 0.0, -1.00195503, -1.0, 0.0, 0.0, -8.00782013, 0.0)
+            gl_translation = (1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0)
+            gl_projection = (0.839099705, 0.0, 0.0, 0.0, 0.0, 1.49173284, 0.0, 0.0, 0.0, 0.0, -1.00195503, -1.0, 0.0, 0.0, -8.00782013, 0.0)
             
             frame_lapse = Float(controller.timeSinceLastUpdate)
             

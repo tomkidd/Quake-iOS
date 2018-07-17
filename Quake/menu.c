@@ -360,16 +360,8 @@ void M_Main_Key (int key)
             Host_Quit_f();
 #else
 #ifdef GLQUAKE
-            // In VR mode, just plainly exit the game.
-            if (glvr_enabled)
-            {
-                key_dest = key_console;
-                Host_Quit_f();
-            }
-            else
-            {
-                M_Menu_Quit_f ();
-            }
+            key_dest = key_console;
+            Host_Quit_f();
 #else
             M_Menu_Quit_f ();
 #endif
