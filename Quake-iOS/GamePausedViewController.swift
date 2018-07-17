@@ -11,6 +11,7 @@ class GamePausedViewController: UIViewController {
     
     #if os(iOS)
     @IBOutlet weak var tiltAimingSwitch: UISwitch!
+    @IBOutlet weak var devModeSwitch: UISwitch!
     #endif
     let defaults = UserDefaults()
 
@@ -19,6 +20,7 @@ class GamePausedViewController: UIViewController {
         
         #if os(iOS)
         tiltAimingSwitch.isOn = defaults.integer(forKey: "tiltAiming") == 1
+        devModeSwitch.isOn = defaults.bool(forKey: "devMode")
         #endif
 
         // Do any additional setup after loading the view.
@@ -51,6 +53,9 @@ class GamePausedViewController: UIViewController {
     #if os(iOS)
     @IBAction func tiltAimingToggle(_ sender: UISwitch) {
         defaults.set(sender.isOn ? 1 : 0, forKey: "tiltAiming")
+    }
+    @IBAction func devModeToggle(_ sender: UISwitch) {
+        defaults.set(sender.isOn, forKey: "devMode")
     }
     #endif
     

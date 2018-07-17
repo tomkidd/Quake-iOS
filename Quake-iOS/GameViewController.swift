@@ -23,6 +23,8 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
 
     var selectedGame:QuakeGame!
     
+    @IBOutlet weak var devModePanel: UIStackView!
+    
     // TODO: standardize user defaults pattern
     let defaults = UserDefaults()
     
@@ -168,6 +170,8 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
         if defaults.integer(forKey: "tiltAiming") == 1 {
             motionManager.startDeviceMotionUpdates()
         }
+        
+        devModePanel.isHidden = !defaults.bool(forKey: "devMode")
         #endif
 
     }
@@ -358,6 +362,43 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
         }
     }
 
+    @IBAction func dev_tilde(_ sender: UIButton) {
+        Sys_Key_Event(96, qboolean(1)) // ~, true
+        Sys_Key_Event(96, qboolean(0)) // ~, false
+        becomeFirstResponder()
+    }
+    
+    @IBAction func dev_up(_ sender: UIButton) {
+        Sys_Key_Event(128, qboolean(1)) // K_UPARROW, true
+        Sys_Key_Event(128, qboolean(0)) // K_UPARROW, false
+    }
+    
+    @IBAction func dev_down(_ sender: UIButton) {
+        Sys_Key_Event(129, qboolean(1)) // K_DOWNARROW, true
+        Sys_Key_Event(129, qboolean(0)) // K_DOWNARROW, false
+    }
+    
+    @IBAction func dev_left(_ sender: UIButton) {
+        Sys_Key_Event(130, qboolean(1)) // K_LEFTARROW, true
+        Sys_Key_Event(130, qboolean(0)) // K_LEFTARROW, false
+    }
+    
+    @IBAction func dev_right(_ sender: UIButton) {
+        Sys_Key_Event(131, qboolean(1)) // K_RIGHTARROW, true
+        Sys_Key_Event(131, qboolean(0)) // K_RIGHTARROW, false
+    }
+    
+    @IBAction func dev_esc(_ sender: UIButton) {
+        Sys_Key_Event(27, qboolean(1)) // K_ESCAPE, true
+        Sys_Key_Event(27, qboolean(0)) // K_ESCAPE, false
+    }
+    
+    @IBAction func dev_enter(_ sender: UIButton) {
+        Sys_Key_Event(13, qboolean(1)) // K_ENTER, true
+        Sys_Key_Event(13, qboolean(0)) // K_ENTER, false
+    }
+    
+
     
 }
 
@@ -373,6 +414,28 @@ extension GameViewController: JoystickDelegate {
     func handleJoyStick(angle: CGFloat, displacement: CGFloat) {
 //        print("angle: \(angle) displacement: \(displacement)")
     }
+    
+}
+
+extension GameViewController: UIKeyInput {
+
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+    
+    var hasText: Bool {
+        return false //???
+    }
+    
+    func insertText(_ text: String) {
+        Sys_Cbuf_AddText(text)
+    }
+    
+    func deleteBackward() {
+        Sys_Key_Event(127, qboolean(1)) // K_ESCAPE, true
+        Sys_Key_Event(127, qboolean(0)) // K_ESCAPE, false
+    }
+    
     
 }
 
