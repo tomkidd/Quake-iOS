@@ -71,8 +71,6 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
         view.bindDrawable()
         self.preferredFramesPerSecond = 60
         
-        glvr_mode = 0
-        
         #if os(iOS)
         self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
@@ -420,7 +418,7 @@ extension GameViewController: JoystickDelegate {
 extension GameViewController: UIKeyInput {
 
     override var canBecomeFirstResponder: Bool {
-        return true
+        return false // disable for now
     }
     
     var hasText: Bool {

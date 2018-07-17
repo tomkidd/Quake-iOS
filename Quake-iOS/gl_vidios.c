@@ -145,8 +145,6 @@ qboolean tiltaim_enabled;
 
 qboolean glvr_enabled;
 
-int glvr_mode;
-
 int glvr_eyecount;
 int glvr_eyeindex;
 

@@ -31,28 +31,14 @@ void IN_Commands (void)
 
 void IN_Move (usercmd_t *cmd)
 {
-    if (glvr_mode == 0)
-    {
-        cl.viewangles[YAW] -= in_rollangle * in_anglescaling.value * 90;
-        
-        V_StopPitchDrift();
-        
-        if (tiltaim_enabled) {
-            cl.viewangles[PITCH] = (in_pitchangle + 1.5) * 90;
-        } else {
-            cl.viewangles[PITCH] += in_pitchangle * in_anglescaling.value * 90;
-        }
-        
-//        printf("in_pitchangle: %f cl.viewangles[PITCH]: %f\n", in_pitchangle, cl.viewangles[PITCH]);
-    }
-    else
-    {
-        cl.viewangles[YAW] = glvr_viewangles[YAW];
-
-        V_StopPitchDrift();
-        
-        cl.viewangles[PITCH] = glvr_viewangles[PITCH];
-        cl.viewangles[ROLL] = glvr_viewangles[ROLL];
+    cl.viewangles[YAW] -= in_rollangle * in_anglescaling.value * 90;
+    
+    V_StopPitchDrift();
+    
+    if (tiltaim_enabled) {
+        cl.viewangles[PITCH] = (in_pitchangle + 1.5) * 90;
+    } else {
+        cl.viewangles[PITCH] += in_pitchangle * in_anglescaling.value * 90;
     }
     
     if (cl.viewangles[PITCH] > 80)

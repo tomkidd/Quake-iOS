@@ -77,32 +77,11 @@ class GameControllerSetup: NSObject
                 
                 remote!.extendedGamepad!.buttonY.pressedChangedHandler = { (button: GCControllerButtonInput, value: Float, pressed: Bool) -> () in
                     
-//                    if (!pressed)
-//                    {
-//                        glvr_mode += 1
-//
-//                        if (glvr_mode > 2)
-//                        {
-//                            glvr_mode = 0
-//                        }
-//
-//                        if (glvr_mode == 0)
-//                        {
-//                            Sys_Con_Printf ("VR Static mode enabled.\n")
-//                        }
-//                        else if (glvr_mode == 1)
-//                        {
-//                            Sys_Con_Printf ("VR Head View mode enabled.\n")
-//                        }
-//                        else
-//                        {
-//                            Sys_Con_Printf ("VR Head Forward mode enabled.\n")
-//                        }
-//                    }
-                    
                 }
                 
                 remote!.extendedGamepad!.leftThumbstick.xAxis.valueChangedHandler = { (button: GCControllerAxisInput, value: Float) -> () in
+                    
+                    print("leftThumbstick.xAxis.valueChangedHandler value: \(value)")
                     
                     in_forwardmove = value
                     
@@ -116,19 +95,13 @@ class GameControllerSetup: NSObject
                 
                 remote!.extendedGamepad!.rightThumbstick.xAxis.valueChangedHandler = { (button: GCControllerAxisInput, value: Float) -> () in
                     
-                    if glvr_mode != 2
-                    {
-                        in_rollangle = value
-                    }
+                    in_rollangle = value
                     
                 }
                 
                 remote!.extendedGamepad!.rightThumbstick.yAxis.valueChangedHandler = { (button: GCControllerAxisInput, value: Float) -> () in
                     
-                    if glvr_mode == 0
-                    {
-                        in_pitchangle = -value
-                    }
+                    in_pitchangle = -value
                     
                 }
                 

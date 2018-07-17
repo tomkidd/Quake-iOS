@@ -68,8 +68,6 @@ float	v_dmg_time, v_dmg_roll, v_dmg_pitch;
 
 extern	int			in_forward, in_forward2, in_back;
 
-extern int glvr_mode;
-
 /*
 ===============
 V_CalcRoll
@@ -871,10 +869,7 @@ void V_CalcRefdef (void)
 	float		bob;
 	static float oldz = 0;
 
-    if (glvr_mode == 0)
-    {
-        V_DriftPitch ();
-    }
+    V_DriftPitch ();
 
 // ent is the player model (visible when out of body)
 	ent = &cl_entities[cl.viewentity];
