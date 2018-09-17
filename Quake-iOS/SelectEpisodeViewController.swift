@@ -9,7 +9,7 @@ import UIKit
 
 class SelectEpisodeViewController: UIViewController {
 
-    var selectedGame:QuakeGame!
+    var selectedGame = QuakeGame.Quake
     var selectedEpisode:Int = 1
 
     @IBOutlet weak var boxArtImage: UIImageView!

@@ -9,13 +9,13 @@ import UIKit
 
 class MainMenuViewController: UIViewController {
     
-    var selectedGame: QuakeGame!
+    var selectedGame = QuakeGame.Quake
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let defaults = UserDefaults()
-        selectedGame = QuakeGame(rawValue: defaults.integer(forKey: "selectedGame"))
+        selectedGame = QuakeGame(rawValue: defaults.integer(forKey: "selectedGame"))!
 
         // Do any additional setup after loading the view.
     }

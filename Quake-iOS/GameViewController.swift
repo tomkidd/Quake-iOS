@@ -21,7 +21,7 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
 {
     var context: EAGLContext!
 
-    var selectedGame:QuakeGame!
+    var selectedGame = QuakeGame.Quake
     
     @IBOutlet weak var devModePanel: UIStackView!
     
@@ -81,7 +81,7 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
         
         let menuPressRecognizer = UITapGestureRecognizer()
         menuPressRecognizer.addTarget(self, action: #selector(GameViewController.menuButtonAction))
-        menuPressRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.menu.rawValue)]
+        menuPressRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue)]
         
         self.view.addGestureRecognizer(menuPressRecognizer) 
         
@@ -152,7 +152,7 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
             joysticksInitialized = true
         }
 
-        #endif
+#endif
         
         gamePaused = false
         
@@ -265,8 +265,6 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
             selectedGameString = "rogue"
         case .QuakeEp5:
             selectedGameString = "dopa"
-        default:
-            selectedGameString = "id1"
         }
         
         host_initialized = qboolean(0)

@@ -9,7 +9,7 @@ import UIKit
 
 class SelectLevelViewController: UIViewController {
     
-    var selectedGame:QuakeGame!
+    var selectedGame = QuakeGame.Quake
     var selectedEpisode:Int = 1
     var commandLine = ""
 
@@ -107,7 +107,6 @@ class SelectLevelViewController: UIViewController {
             boxArtImage.image = UIImage(named: "quake-box")
             // (continue to be) disabled until I figure out why DOPA's demos won't run 
             //startDemoButton.isHidden = false
-        default: ()
         }
         
         levelList.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -136,7 +135,6 @@ class SelectLevelViewController: UIViewController {
             commandLine = "-rogue +map start"
         case .QuakeEp5:
             commandLine = "-game dopa +map start"
-        default: ()
         }
         
         performSegue(withIdentifier: "StartLevelSegue", sender: self)
@@ -169,7 +167,6 @@ extension SelectLevelViewController: UITableViewDelegate {
             commandLine = "-rogue +map \(quakeXP2Levels[selectedEpisode][indexPath.row].map)"
         case .QuakeEp5:
             commandLine = "-game dopa +map \(quakeLevels[selectedEpisode][indexPath.row].map)"
-        default: ()
         }
         
         performSegue(withIdentifier: "StartLevelSegue", sender: self)
@@ -188,10 +185,7 @@ extension SelectLevelViewController: UITableViewDataSource {
             return quakeXP2Levels[selectedEpisode].count
         case .QuakeEp5:
             return quakeLevels[selectedEpisode].count
-        default: ()
         }
-        
-        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -210,7 +204,6 @@ extension SelectLevelViewController: UITableViewDataSource {
             cell.textLabel?.text = quakeXP2Levels[selectedEpisode][indexPath.row].name
         case .QuakeEp5:
             cell.textLabel?.text = quakeLevels[selectedEpisode][indexPath.row].name
-        default: ()
         }
         return cell
 

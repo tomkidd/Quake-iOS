@@ -18,7 +18,7 @@ class GameOptionsViewController: UIViewController {
     @IBOutlet weak var startGameButton: UIButton!
     
 
-    var selectedGame:QuakeGame!
+    var selectedGame = QuakeGame.Quake
     var commandLine = ""
     var demoCommandLine = ""
 

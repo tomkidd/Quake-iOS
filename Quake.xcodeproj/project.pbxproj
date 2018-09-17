@@ -99,6 +99,7 @@
 		A13EC59E20EAE44800CEB727 /* SelectEpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13EC59C20EAE44800CEB727 /* SelectEpisodeViewController.swift */; };
 		A1834E0F20F70C07001A17BB /* dopa in Resources */ = {isa = PBXBuildFile; fileRef = A1834E0E20F70C07001A17BB /* dopa */; };
 		A1834E1020F70C07001A17BB /* dopa in Resources */ = {isa = PBXBuildFile; fileRef = A1834E0E20F70C07001A17BB /* dopa */; };
+		A1902F6E21093A28008823BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC52B620D5990A001DF6CA /* AppDelegate.swift */; };
 		A1ABE1FB20E33E25008FCD88 /* JoyStickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ABE1FA20E33E25008FCD88 /* JoyStickView.swift */; };
 		A1ABE1FD20E33EA2008FCD88 /* CoreGraphics+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ABE1FC20E33EA2008FCD88 /* CoreGraphics+Additions.swift */; };
 		A1ABE1FF20E48923008FCD88 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1ABE1FE20E48923008FCD88 /* MainMenuViewController.swift */; };
@@ -170,7 +171,6 @@
 		A1E1816720B52B1100F3D5E7 /* snd_ios.c in Sources */ = {isa = PBXBuildFile; fileRef = A1E1816620B52B1100F3D5E7 /* snd_ios.c */; };
 		A1E1819120BA2D1900F3D5E7 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E1819020BA2D1900F3D5E7 /* GLKit.framework */; };
 		A1E1819320BA2D3100F3D5E7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E1819220BA2D3100F3D5E7 /* QuartzCore.framework */; };
-		A1FC52B720D5990A001DF6CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC52B620D5990A001DF6CA /* AppDelegate.swift */; };
 		A1FC52BC20D5990A001DF6CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1FC52BA20D5990A001DF6CA /* Main.storyboard */; };
 		A1FC52BE20D5990C001DF6CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1FC52BD20D5990C001DF6CA /* Assets.xcassets */; };
 		A1FC52C320D599B4001DF6CA /* snd_ios.c in Sources */ = {isa = PBXBuildFile; fileRef = A1E1816620B52B1100F3D5E7 /* snd_ios.c */; };
@@ -884,6 +884,7 @@
 					A1FC52B320D5990A001DF6CA = {
 						CreatedOnToolsVersion = 9.4;
 						DevelopmentTeam = 9UY8SFDNQ8;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1136,6 +1137,7 @@
 				A1FC52E120D59A17001DF6CA /* cl_parse.c in Sources */,
 				A1FC531220D59AAE001DF6CA /* sv_move.c in Sources */,
 				A1BADA6920EEC3330080F57B /* strlcpy.c in Sources */,
+				A1902F6E21093A28008823BB /* AppDelegate.swift in Sources */,
 				A1FC530520D59A17001DF6CA /* net_main.c in Sources */,
 				A1FC530120D59A17001DF6CA /* menu.c in Sources */,
 				A13EC59B20EA67B200CEB727 /* GameOptionsViewController.swift in Sources */,
@@ -1175,7 +1177,6 @@
 				A1FC52E620D59A17001DF6CA /* crc.c in Sources */,
 				A1FC530420D59A17001DF6CA /* net_loop.c in Sources */,
 				A1FC52C320D599B4001DF6CA /* snd_ios.c in Sources */,
-				A1FC52B720D5990A001DF6CA /* AppDelegate.swift in Sources */,
 				A1DA0C6120F16F800063285C /* GamePausedViewController.swift in Sources */,
 				A1DA0C5420F04CE20063285C /* mapping0.c in Sources */,
 			);
@@ -1440,7 +1441,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "Quake-iOS/bridging.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.3;
 			};
@@ -1484,7 +1485,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Quake-iOS/bridging.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.3;
 				VALIDATE_PRODUCT = YES;
