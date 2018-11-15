@@ -23,6 +23,8 @@ You will need to drag your directories into the project and select "Create Folde
 
 Place the music in .ogg file format in a subdirectory of each folder called "music". The music for at least the original game can be found [here](https://www.moddb.com/games/quake/downloads/ultimate-quake-patch-v1-11). They need to be named `track02.ogg`, `track03.ogg`, etc. They have to start at 2 because the engine thinks track 1 is the data of the game. *NOTE:* Mission Pack #1 (hipnotic) plays track 98 in the prerecorded demo for some reason so duplicate `track02.ogg` as `track98.ogg` to hear it. 
 
+***NOTE:*** iOS is **case sensitive**, so the filenames for the data (i.e., `pak0.pak`, `pak1.pak`, etc.) need to be in **lower case** because that's what the engine is looking for. It has come to my attention that some digital retailers such as GOG install the files with upper case filenames. If you run into issues with the game this may be the cause. If you see an error message to the effect of `couldn't load gfx.wad` but you can verify the pak files are in place this may be the cause.
+
 You can read a lengthy blog article on how I did all this [here](http://schnapple.com/quake-for-ios-and-tvos-for-apple-tv/).
 
 This repo was based on the Google Cardboard port contained in this [Quake For OSX](https://github.com/Izhido/Quake_For_OSX) port by Izhido on GitHub. Background music support came from [QuakeSpasm](http://quakespasm.sourceforge.net/). On-screen joystick code came from [this repo](https://github.com/bradhowes/Joystick) by Brad Howe. Quake font DpQuake by Dead Pete available [here](https://www.dafont.com/quake.font)

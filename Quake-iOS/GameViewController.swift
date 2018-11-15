@@ -386,6 +386,14 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
         Sys_Key_Event(13, qboolean(0)) // K_ENTER, false
     }
     
+    @IBAction func weaponUp(_ sender: UIButton) {
+        Sys_Cbuf_AddText("impulse 10\n")
+    }
+    
+    @IBAction func weaponDown(_ sender: UIButton) {
+        Sys_Cbuf_AddText("impulse 12\n")
+    }
+    
 
     
 }
