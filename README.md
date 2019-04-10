@@ -1,6 +1,12 @@
+<img align="left" width="100" height="100" src="https://raw.githubusercontent.com/tomkidd/Quake-iOS/master/icon_quake.png">  
+
 #  Quake for iOS and tvOS for Apple TV
 
+&nbsp;
+
 This is my port of Quake for iOS, running in modern resolutions including the full width of the iPhone X. I have also made a target and version for tvOS to run on Apple TV.
+
+![screenshot](https://raw.githubusercontent.com/tomkidd/Quake-iOS/master/ss_quake.png)
 
 Features
 
@@ -32,5 +38,7 @@ This repo was based on the Google Cardboard port contained in this [Quake For OS
 [Video of Quake running on an iPhone X](https://www.youtube.com/watch?v=5awJDcu-cAs)
 
 [Video of Quake running on an Apple TV](https://www.youtube.com/watch?v=jC_qnGjzO7s)
+
+I have also made apps for [*Wolfenstein 3-D*](https://github.com/tomkidd/Wolf3D-iOS), [*DOOM*, *DOOM II* and *Final DOOM*](https://github.com/tomkidd/DOOM-iOS), [*Quake II*](https://github.com/tomkidd/Quake2-iOS), [*Quake III: Arena*](https://github.com/tomkidd/Quake3-iOS), [*Return to Castle Wolfenstein*](https://github.com/tomkidd/RTCW-iOS) and [*DOOM 3*](https://github.com/tomkidd/DOOM3-iOS).
 
 Have fun. For any questions I can be reached at tomkidd@gmail.com
