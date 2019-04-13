@@ -324,11 +324,11 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
     }
     
     #if os(iOS)
-    override func prefersHomeIndicatorAutoHidden() -> Bool {
+    override var prefersHomeIndicatorAutoHidden: Bool {
         return true
     }
     
-    override func preferredScreenEdgesDeferringSystemGestures() -> UIRectEdge {
+    override var preferredScreenEdgesDeferringSystemGestures: UIRectEdge {
         return .bottom
     }
     #endif
