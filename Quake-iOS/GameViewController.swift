@@ -251,9 +251,14 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
         let resourcesDir = Bundle.main.resourcePath!
         
         GameDataDetection.detect()
-        
-        let documentsDir = try! FileManager().url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).path
-        
+
+        #if os(tvOS)
+            let documentsDir = try! FileManager().url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true).path
+            print("docs", documentsDir)
+        #else
+            let documentsDir = try! FileManager().url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).path
+        #endif
+
         var selectedGameString = "id1"
         
         switch selectedGame {
