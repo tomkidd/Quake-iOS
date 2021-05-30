@@ -1,3 +1,7 @@
+<hr>
+<img align="left" width="50" height="50" src="https://schnapple.com/wp-content/uploads/2021/05/m1_small.jpg">
+I'm trying to fund an M1 Mac to keep old games running on new Macs. If you'd like to help you can contribute here: https://ko-fi.com/schnapple
+<hr>
 <img align="left" width="100" height="100" src="https://raw.githubusercontent.com/tomkidd/Quake-iOS/master/icon_quake.png">  
 
 #  Quake for iOS and tvOS for Apple TV
@@ -25,7 +29,7 @@ You will need to provide your own copies of the `id1` (Quake), `hipnotic` (Missi
 
 You will need to drag your directories into the project and select "Create Folder References" and add them to both the Quake and QuakeTV targets. The folders will be blue if you've done it right:
 
-![folders](https://github.com/tomkidd/Quake-iOS/raw/master/folders.png)
+![folders](https://raw.githubusercontent.com/tomkidd/Quake-iOS/master/folders.png)
 
 Place the music in .ogg file format in a subdirectory of each folder called "music". The music for at least the original game can be found [here](https://www.moddb.com/games/quake/downloads/ultimate-quake-patch-v1-11). They need to be named `track02.ogg`, `track03.ogg`, etc. They have to start at 2 because the engine thinks track 1 is the data of the game. *NOTE:* Mission Pack #1 (hipnotic) plays track 98 in the prerecorded demo for some reason so duplicate `track02.ogg` as `track98.ogg` to hear it. 
 
