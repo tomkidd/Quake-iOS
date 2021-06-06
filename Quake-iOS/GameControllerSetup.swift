@@ -90,9 +90,13 @@ class GameControllerSetup: NSObject
                 }
                 
                 remote!.extendedGamepad!.rightThumbstick.yAxis.valueChangedHandler = { (button: GCControllerAxisInput, value: Float) -> () in
-                    
-                    in_pitchangle = -value
-                    
+
+                    if m_pitch.value > 0 {
+                        in_pitchangle = -value
+                    } else {
+                        in_pitchangle = value
+                    }
+
                 }
                 
                 remote!.extendedGamepad!.rightTrigger.pressedChangedHandler = { (button: GCControllerButtonInput, value: Float, pressed: Bool) -> () in
