@@ -1,3 +1,9 @@
+<img align="left" width="100" height="100" src="https://raw.githubusercontent.com/tomkidd/Quake-iOS/master/icon_quake.png">  
+
+#  Quake for iOS and tvOS for Apple TV
+
+&nbsp;
+
 This is my port of Quake for iOS, running in modern resolutions including the full width of the iPhone X. I have also made a target and version for tvOS to run on Apple TV.
 
 ![screenshot](https://raw.githubusercontent.com/tomkidd/Quake-iOS/master/ss_quake.png)
