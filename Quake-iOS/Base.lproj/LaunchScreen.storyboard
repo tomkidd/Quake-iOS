@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,18 +19,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quake_logo_background" translatesAutoresizingMaskIntoConstraints="NO" id="ymM-L6-d7I">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quake-box" translatesAutoresizingMaskIntoConstraints="NO" id="ymM-L6-d7I">
+                                <rect key="frame" x="175" y="0.0" width="317" height="375"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="ymM-L6-d7I" secondAttribute="height" multiplier="16:9" id="DB7-Lr-MkY"/>
+                                    <constraint firstAttribute="width" secondItem="ymM-L6-d7I" secondAttribute="height" multiplier="800:947" id="gBL-UE-EVX"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ymM-L6-d7I" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="HlV-WS-y1z"/>
-                            <constraint firstItem="ymM-L6-d7I" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Odb-s9-IXv"/>
-                            <constraint firstItem="ymM-L6-d7I" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="aIu-qQ-pug"/>
+                            <constraint firstItem="ymM-L6-d7I" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="1O9-s0-ZZD"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="ymM-L6-d7I" secondAttribute="bottom" id="mAe-wd-YAO"/>
+                            <constraint firstItem="ymM-L6-d7I" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="rs7-00-fP4"/>
+                            <constraint firstItem="ymM-L6-d7I" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="wDM-g3-85q"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -43,6 +41,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="quake_logo_background" width="1920" height="1080"/>
+        <image name="quake-box" width="800" height="947"/>
     </resources>
 </document>
