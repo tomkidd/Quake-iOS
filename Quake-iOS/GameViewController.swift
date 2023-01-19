@@ -411,24 +411,15 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
     
 }
 
-extension Float {
-    
-    func compensate(_ value: Float) -> Float {
-        return self * value
-    }
-    
-}
-
 #if os(iOS)
 
 extension GameViewController: JoystickDelegate {
     
     func handleJoyStickPosition(tag: JoystickTag, x: CGFloat, y: CGFloat) {
-        let compensation = Float(0.6)
         switch tag {
         case .viewPitch:
-            in_rollangle = Float(x).compensate(compensation)
-            in_pitchangle = Float(-y).compensate(compensation)
+            in_rollangle = Float(x)
+            in_pitchangle = Float(-y)
         case .movePitch:
             in_sidestepmove = Float(y)
             in_forwardmove = Float(x)
