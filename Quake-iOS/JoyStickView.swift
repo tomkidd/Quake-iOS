@@ -2,10 +2,10 @@ import UIKit
 import CoreGraphics
 
 
-protocol JoystickDelegate: class {
+protocol JoystickDelegate: AnyObject {
     
-    func handleJoyStick(angle: CGFloat, displacement: CGFloat)
-    func handleJoyStickPosition(x: CGFloat, y: CGFloat)
+    func handleJoyStick(tag: JoystickTag, angle: CGFloat, displacement: CGFloat)
+    func handleJoyStickPosition(tag: JoystickTag, x: CGFloat, y: CGFloat)
 
 }
 
@@ -19,6 +19,12 @@ protocol JoystickDelegate: class {
  is the ratio of distance moved from center over the radius of the joystick base. Always in range 0.0-1.0
  */
 public typealias JoyStickViewMonitor = (_ angle: CGFloat, _ displacement: CGFloat) -> ()
+
+
+public enum JoystickTag: Int {
+    case viewPitch
+    case movePitch
+}
 
 /**
  A simple implementation of a joystick interface like those found on classic arcade games. This implementation detects
@@ -95,6 +101,9 @@ public final class JoyStickView: UIView {
     
     /// The original location of the joystick. Used to restore its position when user double-taps on it.
     private var originalCenter: CGPoint?
+    
+    /// The original location of the joystick. Used to restore its position when user double-taps on it.
+    public var joystickTag: JoystickTag = .movePitch
     
     /// Tap gesture recognizer for double-taps which will reset the joystick position
     private var tapGestureRecognizer: UITapGestureRecognizer!
@@ -206,9 +215,10 @@ public final class JoyStickView: UIView {
      Reset our position.
      */
     @objc public func resetFrame() {
-        if displacement < 0.5 && originalCenter != nil {
-            center = originalCenter!
-            originalCenter = nil
+        if displacement < 0.5,
+           let originalCenter = originalCenter {
+            center = originalCenter
+            self.originalCenter = nil
         }
     }
     
@@ -309,7 +319,7 @@ public final class JoyStickView: UIView {
             //
             self.angle = newClampedDisplacement != 0.0 ? CGFloat(180.0 - newAngleRadians * 180.0 / Float.pi) : 0.0
             //            monitor?(angle, displacement)
-            self.delegate?.handleJoyStick(angle: angle, displacement: displacement)
+            self.delegate?.handleJoyStick(tag: joystickTag, angle: angle, displacement: displacement)
             
             
 //            print("delta x: \(delta.dx) delta y: \(delta.dy)")
@@ -317,7 +327,7 @@ public final class JoyStickView: UIView {
             let new_x = (delta.dx / (radius * 2))
             let new_y = (delta.dy / (radius * 2)) * -1
 //            print("new_x: \(new_x) new_y: \(new_y)")
-            self.delegate?.handleJoyStickPosition(x: new_x, y: new_y)
+            self.delegate?.handleJoyStickPosition(tag: joystickTag, x: new_x, y: new_y)
         }
     }
 }

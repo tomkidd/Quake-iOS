@@ -83,7 +83,7 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
         menuPressRecognizer.addTarget(self, action: #selector(GameViewController.menuButtonAction))
         menuPressRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue)]
         
-        self.view.addGestureRecognizer(menuPressRecognizer) 
+        self.view.addGestureRecognizer(menuPressRecognizer)
         
         #endif
         
@@ -117,10 +117,13 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
         if !joysticksInitialized {
             
             let rect = view.frame
-            let size = CGSize(width: 100.0, height: 100.0)
+            let joystickSize = CGSize(width: 100.0, height: 100.0)
             let joystick1Frame = CGRect(origin: CGPoint(x: 50.0,
-                                                        y: (rect.height - size.height - 50.0)),
-                                        size: size)
+                                                        y: (rect.height - joystickSize.height - 50.0)),
+                                        size: joystickSize)
+            let joystick2Frame = CGRect(origin: CGPoint(x: rect.width - joystickSize.width - 50.0,
+                                                        y: (rect.height - joystickSize.height - 50.0)),
+                                        size: joystickSize)
             let joystick1 = JoyStickView(frame: joystick1Frame)
             joystick1.delegate = self
             
@@ -130,8 +133,20 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
             joystick1.alpha = 0.5
             joystick1.baseAlpha = 0.5 // let the background bleed thru the base
             joystick1.handleTintColor = UIColor.darkGray // Colorize the handle
+            joystick1.joystickTag = .movePitch
             
-            let fireButton = UIButton(frame: CGRect(x: rect.width - 155, y: rect.height - 90, width: 75, height: 75))
+            let joystick2 = JoyStickView(frame: joystick2Frame)
+            joystick2.delegate = self
+            
+            view.addSubview(joystick2)
+            
+            joystick2.movable = false
+            joystick2.alpha = 0.5
+            joystick2.baseAlpha = 0.5 // let the background bleed thru the base
+            joystick2.handleTintColor = UIColor.darkGray // Colorize the handle
+            joystick2.joystickTag = .viewPitch
+            
+            let fireButton = UIButton(frame: CGRect(x: rect.width - 155 - joystickSize.width, y: rect.height - 90 - joystickSize.height, width: 75, height: 75))
             fireButton.setTitle("FIRE", for: .normal)
             fireButton.setBackgroundImage(UIImage(named: "JoyStickBase")!, for: .normal)
             fireButton.addTarget(self, action: #selector(firePressed), for: .touchDown)
@@ -140,7 +155,7 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
             
             view.addSubview(fireButton)
             
-            let jumpButton = UIButton(frame: CGRect(x: rect.width - 90, y: rect.height - 135, width: 75, height: 75))
+            let jumpButton = UIButton(frame: CGRect(x: rect.width - 90 - joystickSize.width, y: rect.height - 135 - joystickSize.height, width: 75, height: 75))
             jumpButton.setTitle("JUMP", for: .normal)
             jumpButton.setBackgroundImage(UIImage(named: "JoyStickBase")!, for: .normal)
             jumpButton.addTarget(self, action: #selector(jumpPressed), for: .touchDown)
@@ -271,8 +286,7 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
         
         Sys_Init(resourcesDir, documentsDir, commandLine!, selectedGameString)
         
-        if (host_initialized != qboolean(0))
-        {
+        if (host_initialized != qboolean(0)) {
             let server = UserDefaults.standard.string(forKey: "lanConfig_joinname")
             
             if server != nil && !server!.isEmpty
@@ -303,8 +317,7 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
         }
     }
     
-    func setupEndingScreen()
-    {
+    func setupEndingScreen() {
     }
     
     @objc func firePressed(sender: UIButton!) {
@@ -398,16 +411,32 @@ class GameViewController: GLKViewController, GLKViewControllerDelegate
     
 }
 
+extension Float {
+    
+    func compensate(_ value: Float) -> Float {
+        return self * value
+    }
+    
+}
+
 #if os(iOS)
 
 extension GameViewController: JoystickDelegate {
     
-    func handleJoyStickPosition(x: CGFloat, y: CGFloat) {
-        in_sidestepmove = Float(y) // misnamed but whatever
-        in_rollangle = Float(x)
+    func handleJoyStickPosition(tag: JoystickTag, x: CGFloat, y: CGFloat) {
+        let compensation = Float(0.6)
+        switch tag {
+        case .viewPitch:
+            in_rollangle = Float(x).compensate(compensation)
+            in_pitchangle = Float(-y).compensate(compensation)
+        case .movePitch:
+            in_sidestepmove = Float(y)
+            in_forwardmove = Float(x)
+        }
+         // misnamed but whatever
     }
     
-    func handleJoyStick(angle: CGFloat, displacement: CGFloat) {
+    func handleJoyStick(tag: JoystickTag, angle: CGFloat, displacement: CGFloat) {
 //        print("angle: \(angle) displacement: \(displacement)")
     }
     
